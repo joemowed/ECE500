@@ -11,17 +11,12 @@ while True:
     # Convert to HSV color space
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
 
-
-
-
-
-
-
     # Define green color range
     lower_green = np.array([40, 70, 70])
-    upper_green = np.array( [80, 255, 255])
+    upper_green = np.array([80, 255, 255])
 
     # Create mask for green color
+
     mask = cv2.inRange(hsv, lower_green, upper_green)
 
     # Find contours
@@ -35,12 +30,10 @@ while True:
             # Draw red bounding box
             cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
 
-
     cv2.imshow("Webcam Feed", frame)
 
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
 
 cap.release()
 cv2.destroyAllWindows()
-
