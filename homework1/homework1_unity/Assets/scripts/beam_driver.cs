@@ -27,16 +27,23 @@ public class beam_driver : MonoBehaviour
     {
         set_angle(targetAngleDegrees);
     }
-    // Optional: change angle at runtime
+
     public void set_angle(float angleDeg)
     {
         var drive = ab.xDrive;
         drive.target = angleDeg;
         ab.xDrive = drive;
     }
+
     public float get_angle()
     {
         return ab.jointPosition[0] * Mathf.Rad2Deg;
+    }
+
+    //gets the global position of the beam
+    public Vector3 get_pos()
+    {
+        return transform.position;
     }
 
 
