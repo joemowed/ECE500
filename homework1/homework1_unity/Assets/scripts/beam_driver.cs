@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class beam_driver : MonoBehaviour
 {
-    public float targetAngleDegrees = 0f;
+    public float target_angle = 0f;
+    //max_angle is symmetric for both sides
+    private const float max_angle = 89;
 
     private ArticulationBody ab;
     void Awake()
@@ -19,19 +21,27 @@ public class beam_driver : MonoBehaviour
         drive.stiffness = 1E6f;
         drive.forceLimit = 1E5f;
         drive.target = 0;
-        drive.lowerLimit = -89f;
-        drive.upperLimit = 89f;
+        drive.lowerLimit = -max_angle;
+        drive.upperLimit = max_angle;
         ab.xDrive = drive;
     }
     void FixedUpdate()
     {
-        set_angle(targetAngleDegrees);
+        set_angle(target_angle);
     }
-
-    public void set_angle(float angleDeg)
+    // "angle" is a float with range 0-1, 0 being the maximum left angle and 1 being the maximum right angle
+    public void set_angle(float angle)
     {
+        angle -= 0.5f;
+        angle *= 2f;
+        angle *= -1f;
+        angle *= max_angle;
+        if (Mathf.Abs(angle) > max_angle)
+        {
+            Debug.LogError($"Target beam angle exceeds limits.  Target Angle:{angle}  Limit: +/-{max_angle}");
+        }
         var drive = ab.xDrive;
-        drive.target = angleDeg;
+        drive.target = angle;
         ab.xDrive = drive;
     }
 
