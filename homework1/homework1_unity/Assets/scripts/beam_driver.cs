@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class beam_driver : MonoBehaviour
@@ -47,7 +48,9 @@ public class beam_driver : MonoBehaviour
 
     public float get_angle()
     {
-        return ab.jointPosition[0] * Mathf.Rad2Deg;
+        float angle_deg = ab.jointPosition[0] * Mathf.Rad2Deg;
+        angle_deg += max_angle; //make angle positive in range 0-2*max_angle
+        return angle_deg / (2 * max_angle);
     }
 
     //gets the global position of the beam
