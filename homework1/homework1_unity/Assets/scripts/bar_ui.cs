@@ -6,7 +6,7 @@ public class bar_ui : MonoBehaviour
 {
     public TMP_Text bar_text;
     public Image foreground_img;
-    [SerializeField, Range(0f, 1f)]
+    //  [SerializeField, Range(0f, 1f)]
     private float value = 0.5f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
