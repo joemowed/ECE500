@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SocialPlatforms;
 
@@ -30,4 +31,8 @@ public class ball_driver : MonoBehaviour {
         this.impulse = imp;
     }
 
+    public float get_speed() {
+        Debug.Log(rb.linearVelocity.x);
+        return rb.linearVelocity.x;
+    }
 }

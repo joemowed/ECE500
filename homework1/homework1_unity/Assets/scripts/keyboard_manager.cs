@@ -92,7 +92,6 @@ public class keyboard_manager : MonoBehaviour {
     }
     private void move_target(float direction_mult) {
         var new_pos = target_manager.get_target();
-        Debug.Log($"{target_manager.get_target()}");
         new_pos += direction_mult * target_move_speed * Time.deltaTime;
         new_pos = Mathf.Clamp(new_pos, 0, 1);
         target_manager.set_target(new_pos);

@@ -4,7 +4,6 @@ using UnityEngine;
 public class target_manager : MonoBehaviour {
     public indicator_driver id;
     private float target = 0.5f;
-    private const float target_max = 0.8f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
         if (id == null) {
@@ -22,7 +21,7 @@ public class target_manager : MonoBehaviour {
             Debug.LogError($"Attempt to set target to out of range value. (allowed range is 0-1) Value:{value}", this);
             Mathf.Clamp(value, 0, 1);
         }
-        target = target_max * value;
+        target = value;
     }
     public float get_target() => target;
 }

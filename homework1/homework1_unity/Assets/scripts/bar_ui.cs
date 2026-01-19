@@ -35,4 +35,7 @@ public class bar_ui : MonoBehaviour {
         new_txt = new_txt.PadLeft(4);
         bar_text.text = new_txt;
     }
+    public void set_foreground_color(Color color) {
+        foreground_img.color = color;
+    }
 }
