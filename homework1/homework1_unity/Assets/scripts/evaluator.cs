@@ -33,7 +33,7 @@ public class evaluator : MonoBehaviour {
         return dist_from_target() <= target_area;
     }
     //returns what percent of the time required to be stable the ball has been in the target, up to 100% (range 0-1).
-    public float target_time_percent() {
+    public float stable_time_percent() {
         float result = in_target_time / stable_time;
         return Mathf.Clamp(result, 0, 1);
 

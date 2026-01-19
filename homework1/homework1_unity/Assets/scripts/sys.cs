@@ -47,7 +47,7 @@ public class sys : MonoBehaviour {
         }
     }
     private void update_target_bar() {
-        target_eval_bar.set_value(eval.target_time_percent());
+        target_eval_bar.set_value(eval.stable_time_percent());
         if (eval.is_stable) {
             target_eval_bar.set_foreground_color(target_bar_stable_color);
         } else {
