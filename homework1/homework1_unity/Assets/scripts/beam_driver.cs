@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class beam_driver : MonoBehaviour
 {
-    public float target_angle = 0f;
+    public float target_angle = 0.5f;
     //max_angle is symmetric for both sides
-    private const float max_angle = 89;
+    public const float max_angle = 89;
 
     private ArticulationBody ab;
     void Awake()
