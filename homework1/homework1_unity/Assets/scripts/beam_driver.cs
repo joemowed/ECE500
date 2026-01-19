@@ -25,13 +25,9 @@ public class beam_driver : MonoBehaviour {
         ab.xDrive = drive;
     }
     void FixedUpdate() {
-        set_angle(target_angle);
+        update_angle(target_angle);
     }
-    // "angle" is a float with range 0-1, 0 being the maximum left angle and 1 being the maximum right angle
-    public void set_angle(float angle) {
-        if (angle > 1 || angle < 0) {
-            Debug.LogError($"Target beam angle exceeds allowed range (allowed range 0-1).  Target Angle:{angle}");
-        }
+    private void update_angle(float angle) {
         angle -= 0.5f;
         angle *= 2f;
         angle *= -1f;
@@ -40,12 +36,21 @@ public class beam_driver : MonoBehaviour {
         drive.target = angle;
         ab.xDrive = drive;
     }
+    // "angle" is a float with range 0-1, 0 being the maximum left angle and 1 being the maximum right angle
+    public void set_angle(float angle) {
+        if (angle > 1 || angle < 0) {
+            Debug.LogError($"Target beam angle exceeds allowed range (allowed range 0-1).  Target Angle:{angle}");
+            angle = Mathf.Clamp(angle, 0, 1);
+        }
+        target_angle = angle;
+    }
 
     public float get_angle() {
         float angle_deg = ab.jointPosition[0] * Mathf.Rad2Deg;
         angle_deg += max_angle; //make angle positive in range 0-2*max_angle
         return angle_deg / (2 * max_angle);
     }
+
 
     //gets the global position of the beam
     public Vector3 get_pos() => transform.position;
