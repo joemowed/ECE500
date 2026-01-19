@@ -1,8 +1,10 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class ball_driver : MonoBehaviour {
     private Rigidbody rb;
     private Vector3 impulse;
+    public GameObject beam;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -13,8 +15,11 @@ public class ball_driver : MonoBehaviour {
             impulse = Vector3.zero;
         }
     }
-    //gets the global position of the ball
-    public Vector3 get_pos() => transform.localPosition;
+    public float get_pos() {
+        // Convert ball position to cube local space
+        Vector3 localPos = beam.transform.InverseTransformPoint(transform.position);
+        return localPos.x + 0.5f;
+    }
 
     public void set_pos(Vector3 pos) {
         transform.localPosition = pos;
@@ -24,4 +29,5 @@ public class ball_driver : MonoBehaviour {
         imp.x += impulse;
         this.impulse = imp;
     }
+
 }
