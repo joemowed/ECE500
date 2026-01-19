@@ -10,17 +10,21 @@ public class pid_controller : MonoBehaviour {
     private float targetPosition; // local X position on beam
 
     [Header("PID Gains")]
-    public float Kp = 15f;
-    public float Ki = 0.5f;
-    public float Kd = 5f;
+    public float Kp;
+    public float Ki;
+    public float Kd;
 
     [Header("Limits")]
-    public float maxAngle = 15f; // degrees
+    public float maxAngle;
 
     private float integral;
     private float lastError;
 
+    public bool paused;
     void FixedUpdate() {
+        if (paused) {
+            return;
+        }
         targetPosition = tm.get_target();
         // Ball position in beam local space
         float ballPos = ball_driver.get_pos();
@@ -42,7 +46,6 @@ public class pid_controller : MonoBehaviour {
         output = Mathf.Clamp(output, -maxAngle, maxAngle);
 
         // Apply rotation (around Z for left/right tilt)
-        beam_driver.set_angle(output);
+        beam_driver.set_angle(output + 0.5f);
     }
-
 }

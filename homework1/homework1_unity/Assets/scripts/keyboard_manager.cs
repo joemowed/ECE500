@@ -1,12 +1,13 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class keyboard_manager : MonoBehaviour {
     public bool is_enabled = true;
+    [SerializeField] private sys sys;
     [SerializeField] private target_manager target_manager;
     [SerializeField] private beam_driver beam_driver;
     [SerializeField] private ball_driver ball_driver;
+    [SerializeField] private pid_controller pid_controller;
     [SerializeField] private float target_move_speed, beam_rotate_speed, ball_move_speed;
     private Keyboard kb;
 
@@ -49,7 +50,11 @@ public class keyboard_manager : MonoBehaviour {
         }
 
         if (direction_mult != 0) {
+            sys.is_controller_paused = true;
             handle_arrow_pressed(direction_mult);
+
+        } else {
+            sys.is_controller_paused = false;
         }
 
         if (!is_enabled) {
@@ -60,12 +65,17 @@ public class keyboard_manager : MonoBehaviour {
             on_enter_pressed();
             return;
         }
+        if (kb.altKey.wasPressedThisFrame) {
+            toggleMode();
+        }
 
 
     }
-
+    private void toggleMode() {
+        sys.is_pid_mode = !sys.is_pid_mode;
+    }
     private void on_enter_pressed() {
-        throw new NotImplementedException();
+        sys.random_reset();
     }
     private void handle_arrow_pressed(float direction_mult) {
         if (kb.ctrlKey.isPressed) {

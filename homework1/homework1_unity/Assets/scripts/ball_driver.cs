@@ -5,10 +5,14 @@ using UnityEngine.SocialPlatforms;
 public class ball_driver : MonoBehaviour {
     private Rigidbody rb;
     private Vector3 impulse;
+    public const float end_distance = 0.15f; //how close you can get to the ends of beam when using set_pos().  (0 is on end of beam)
     public GameObject beam;
+    private Vector3 local_reset_position;
+
 
     void Start() {
         rb = GetComponent<Rigidbody>();
+        local_reset_position = beam.transform.InverseTransformPoint(transform.position);
     }
     void FixedUpdate() {
         if (impulse != Vector3.zero) {
@@ -22,8 +26,14 @@ public class ball_driver : MonoBehaviour {
         return localPos.x + 0.5f;
     }
 
-    public void set_pos(Vector3 pos) {
-        transform.localPosition = pos;
+    public void set_pos(float position) {
+        if (position < end_distance || position > 1 - end_distance) {
+            Debug.LogError($"Attempt to set ball outside allowed range. Value: {position} \n(allowed range is {end_distance}-{1 - end_distance})");
+            position = Mathf.Clamp(position, end_distance, 1 - end_distance);
+        }
+        var pos_vector = local_reset_position;
+        pos_vector.x = position - 0.5f;
+        transform.position = beam.transform.TransformPoint(pos_vector);
     }
     public void push(float impulse) {
         Vector3 imp = new Vector3(0, 0, 0);
@@ -32,7 +42,10 @@ public class ball_driver : MonoBehaviour {
     }
 
     public float get_speed() {
-        Debug.Log(rb.linearVelocity.x);
         return rb.linearVelocity.x;
+    }
+    public void reset_velocity() {
+        rb.angularVelocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
     }
 }

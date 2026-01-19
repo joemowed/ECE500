@@ -5,6 +5,8 @@ public class beam_driver : MonoBehaviour {
     public float target_angle = 0.5f;
     //max_angle is symmetric for both sides
     public const float max_angle = 89;
+    private ArticulationReducedSpace reset_position;
+    private ArticulationDrive reset_drive;
 
 
     private ArticulationBody ab;
@@ -14,15 +16,18 @@ public class beam_driver : MonoBehaviour {
 
     void Start() {
 
+        reset_position = ab.jointPosition;
+
         var drive = ab.xDrive;
         drive.driveType = ArticulationDriveType.Force;
-        drive.damping = 1E5f;
-        drive.stiffness = 1E6f;
-        drive.forceLimit = 1E5f;
-        drive.target = 0;
+        drive.damping = 1E2f;
+        drive.stiffness = 1E3f;
+        drive.forceLimit = 1E2f;
+        drive.target = 0f;
         drive.lowerLimit = -max_angle;
         drive.upperLimit = max_angle;
         ab.xDrive = drive;
+        reset_drive = drive;
     }
     void FixedUpdate() {
         update_angle(target_angle);
@@ -44,7 +49,11 @@ public class beam_driver : MonoBehaviour {
         }
         target_angle = angle;
     }
-
+    public void reset_beam() {
+        set_angle(0.5f);
+        ab.xDrive = reset_drive;
+        ab.jointPosition = reset_position;
+    }
     public float get_angle() {
         float angle_deg = ab.jointPosition[0] * Mathf.Rad2Deg;
         angle_deg += max_angle; //make angle positive in range 0-2*max_angle
