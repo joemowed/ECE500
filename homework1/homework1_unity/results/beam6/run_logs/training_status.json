@@ -2,22 +2,22 @@
     "beam_control": {
         "checkpoints": [
             {
-                "steps": 69495,
-                "file_path": "results\\beam6\\beam_control\\beam_control-69495.onnx",
-                "reward": -338.1501552875225,
-                "creation_time": 1768936570.1374068,
+                "steps": 337423,
+                "file_path": "results\\beam6\\beam_control\\beam_control-337423.onnx",
+                "reward": 0.20790144801139832,
+                "creation_time": 1768939529.1389287,
                 "auxillary_file_paths": [
-                    "results\\beam6\\beam_control\\beam_control-69495.pt"
+                    "results\\beam6\\beam_control\\beam_control-337423.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 69495,
+            "steps": 337423,
             "file_path": "results\\beam6\\beam_control.onnx",
-            "reward": -338.1501552875225,
-            "creation_time": 1768936570.1374068,
+            "reward": 0.20790144801139832,
+            "creation_time": 1768939529.1389287,
             "auxillary_file_paths": [
-                "results\\beam6\\beam_control\\beam_control-69495.pt"
+                "results\\beam6\\beam_control\\beam_control-337423.pt"
             ]
         }
     },

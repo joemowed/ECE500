@@ -62,7 +62,7 @@ public class agent : Agent {
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
         //update the reward after the step penalty above
-        AddReward(normalize_reward((0.5f - sys.eval.dist_from_target()) * 0.01f));
+        AddReward(normalize_reward((0.5f - sys.eval.dist_from_target()) * 0.1f));
 
         if (sys.eval.is_stable) {
             goal_reached();
@@ -75,7 +75,7 @@ public class agent : Agent {
     }
     private void set_beam(ActionSegment<float> action_segment) {
         float delta_angle = action_segment[0];
-        float angle = sys.beam_driver.get_angle() + delta_angle;
+        float angle = sys.beam_driver.get_angle() + delta_angle / 4f;
 
         var angle_diff = 0.5f - angle;
         angle_diff = angle_diff * angle_diff * 4f;
