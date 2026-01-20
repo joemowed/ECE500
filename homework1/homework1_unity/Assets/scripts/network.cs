@@ -34,9 +34,9 @@ public class network : MonoBehaviour {
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
                 string text = Encoding.UTF8.GetString(data);
-                Debug.Log(text);
+                //Debug.Log(text);
                 this.data = JsonUtility.FromJson<inbound_packet>(text);
-                Debug.Log($"Python sent: + {this.data.beam_angle}, {this.data.reset_system}");
+                //Debug.Log($"Python sent: + {this.data.beam_angle}, {this.data.reset_system}");
                 mode_send = true;
             }
         }
