@@ -35,7 +35,7 @@ public class agent : Agent {
     public override void OnActionReceived(ActionBuffers actions) {
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
-        AddReward(-episode_time * 0.1f); // exponetial slap the agent for going slow
+        AddReward(-episode_time * 0.2f); // exponetial slap the agent for going slow
         //update the reward after the step penalty above
         cumulative_reward = GetCumulativeReward();
         if (sys.eval.is_stable) {

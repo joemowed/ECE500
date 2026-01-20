@@ -17,8 +17,8 @@ behaviors:
     checkpoint_interval: 500000
     network_settings:
       normalize: false
-      hidden_units: 128
-      num_layers: 2
+      hidden_units: 256
+      num_layers: 3
       vis_encode_type: simple
       memory: null
       goal_conditioning_type: hyper
@@ -37,7 +37,7 @@ behaviors:
           deterministic: false
     init_path: null
     keep_checkpoints: 5
-    even_checkpoints: false
+    even_checkpoints: true
     max_steps: 500000
     time_horizon: 64
     summary_freq: 50000
