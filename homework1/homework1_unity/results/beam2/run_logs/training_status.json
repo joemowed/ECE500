@@ -2,22 +2,58 @@
     "beam_control": {
         "checkpoints": [
             {
-                "steps": 64325,
-                "file_path": "results\\beam2\\beam_control\\beam_control-64325.onnx",
-                "reward": -10.27033027311166,
-                "creation_time": 1768888643.8291118,
+                "steps": 1999978,
+                "file_path": "results\\beam2\\beam_control\\beam_control-1999978.onnx",
+                "reward": -11.409921132894938,
+                "creation_time": 1768896933.9735777,
                 "auxillary_file_paths": [
-                    "results\\beam2\\beam_control\\beam_control-64325.pt"
+                    "results\\beam2\\beam_control\\beam_control-1999978.pt"
+                ]
+            },
+            {
+                "steps": 2999976,
+                "file_path": "results\\beam2\\beam_control\\beam_control-2999976.onnx",
+                "reward": -11.45145209284112,
+                "creation_time": 1768899888.9831169,
+                "auxillary_file_paths": [
+                    "results\\beam2\\beam_control\\beam_control-2999976.pt"
+                ]
+            },
+            {
+                "steps": 3999979,
+                "file_path": "results\\beam2\\beam_control\\beam_control-3999979.onnx",
+                "reward": -11.377233334675086,
+                "creation_time": 1768902815.6691473,
+                "auxillary_file_paths": [
+                    "results\\beam2\\beam_control\\beam_control-3999979.pt"
+                ]
+            },
+            {
+                "steps": 4999969,
+                "file_path": "results\\beam2\\beam_control\\beam_control-4999969.onnx",
+                "reward": -11.507020513637592,
+                "creation_time": 1768905734.5498195,
+                "auxillary_file_paths": [
+                    "results\\beam2\\beam_control\\beam_control-4999969.pt"
+                ]
+            },
+            {
+                "steps": 5000012,
+                "file_path": "results\\beam2\\beam_control\\beam_control-5000012.onnx",
+                "reward": -11.507046205278426,
+                "creation_time": 1768905734.6324258,
+                "auxillary_file_paths": [
+                    "results\\beam2\\beam_control\\beam_control-5000012.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 64325,
+            "steps": 5000012,
             "file_path": "results\\beam2\\beam_control.onnx",
-            "reward": -10.27033027311166,
-            "creation_time": 1768888643.8291118,
+            "reward": -11.507046205278426,
+            "creation_time": 1768905734.6324258,
             "auxillary_file_paths": [
-                "results\\beam2\\beam_control\\beam_control-64325.pt"
+                "results\\beam2\\beam_control\\beam_control-5000012.pt"
             ]
         }
     },
