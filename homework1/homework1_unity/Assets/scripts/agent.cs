@@ -60,11 +60,11 @@ public class agent : Agent
     private void set_beam(ActionSegment<float> action_segment)
     {
         float angle = action_segment[0];
-        float angle_max = 0.0f;
+        float angle_max = 0.4f;
         angle += 0.5f;
         if (angle < angle_max || angle > 1 - angle_max)
         {
-            AddReward(-1E-2F); //keep the angle in range 0-1
+            AddReward(-0.1F); //keep the angle in range 0-1
             cumulative_reward = GetCumulativeReward();
         }
         //Debug.Log($"{angle}  :: {cumulative_reward}");
