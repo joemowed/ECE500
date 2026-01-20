@@ -26,6 +26,9 @@ public class ball_driver : MonoBehaviour {
             is_falling = false;
         }
     }
+    public void reset_pos() {
+        transform.localPosition = beam.transform.TransformPoint(local_reset_position);
+    }
     public float get_pos() {
         // Convert ball position to cube local space
         Vector3 localPos = beam.transform.InverseTransformPoint(transform.position);
