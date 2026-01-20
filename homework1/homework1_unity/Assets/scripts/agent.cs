@@ -9,6 +9,7 @@ public class agent : Agent {
     private int current_episode = 0;
     private float cumulative_reward = 0f;
     private float episode_time = 0f;
+    public Transform ball_transform;
     public override void Initialize() {
         Debug.Log("Agent started");
         current_episode = 0;
@@ -21,6 +22,9 @@ public class agent : Agent {
 
     }
     public override void CollectObservations(VectorSensor sensor) {
+
+        sensor.AddObservation(sys.ball_driver.get_pos_vec3());
+        sensor.AddObservation(sys.ball_driver.get_velocity_vec3());
         sensor.AddObservation(sys.ball_driver.get_pos());
         sensor.AddObservation(sys.ball_driver.get_speed());
         sensor.AddObservation(sys.beam_driver.get_angle());

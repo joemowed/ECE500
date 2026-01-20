@@ -52,4 +52,16 @@ public class ball_driver : MonoBehaviour {
         rb.angularVelocity = Vector3.zero;
         rb.linearVelocity = Vector3.zero;
     }
+    public Vector3 get_pos_vec3() {
+
+        Vector3 localPos = beam.transform.InverseTransformPoint(transform.position);
+        localPos.Normalize();
+        return localPos;
+    }
+    public Vector3 get_velocity_vec3() {
+        Vector3 vel = rb.linearVelocity;
+        vel.Normalize();
+        return vel;
+
+    }
 }
