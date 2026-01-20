@@ -8,6 +8,7 @@ public class ball_driver : MonoBehaviour {
     public const float end_distance = 0.15f; //how close you can get to the ends of beam when using set_pos().  (0 is on end of beam)
     public GameObject beam;
     private Vector3 local_reset_position;
+    public bool is_falling { get; private set; }
 
 
     void Start() {
@@ -18,6 +19,10 @@ public class ball_driver : MonoBehaviour {
         if (impulse != Vector3.zero) {
             rb.AddForce(impulse, ForceMode.Impulse);
             impulse = Vector3.zero;
+        }
+        if (transform.position.y < 0) {
+            Debug.Log("falling ball");
+            is_falling = true;
         }
     }
     public float get_pos() {

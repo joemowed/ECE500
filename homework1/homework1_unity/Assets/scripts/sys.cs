@@ -8,7 +8,7 @@ public class sys : MonoBehaviour {
     public pid_controller pid_controller;
     public Color target_bar_stable_color;
     public Color target_bar_unstable_color;
-    public bool is_pid_mode = true;
+    public bool is_pid_mode = false;
     public TMP_Text mode_indicator_text;
     public beam_driver beam_driver;
     public ball_driver ball_driver;
