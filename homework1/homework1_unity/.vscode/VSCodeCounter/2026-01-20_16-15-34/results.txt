@@ -1,0 +1,36 @@
+Date : 2026-01-20 16:15:34
+Directory : c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts
+Total : 11 files,  533 codes, 43 comments, 81 blanks, all 657 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| C#       |         10 |        474 |         43 |         80 |        597 |
+| YAML     |          1 |         59 |          0 |          1 |         60 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                         | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                            |         11 |        533 |         43 |         81 |        657 |
++----------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                     | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\agent.cs            | C#       |         67 |         18 |         11 |         96 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\ball_driver.cs      | C#       |         64 |          1 |          8 |         73 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\bar_ui.cs           | C#       |         36 |          3 |          3 |         42 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\beam_driver.cs      | C#       |         55 |          3 |         11 |         69 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\configuration.yaml  | YAML     |         59 |          0 |          1 |         60 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\evaluator.cs        | C#       |         35 |          2 |          5 |         42 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\indicator_driver.cs | C#       |         14 |          3 |          2 |         19 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\keyboard_manager.cs | C#       |         93 |          2 |         15 |        110 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\pid_controller.cs   | C#       |         32 |          7 |         13 |         52 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\sys.cs              | C#       |         56 |          2 |          8 |         66 |
+| c:\Users\malon\Downloads\ECE500\homework1\homework1_unity\Assets\scripts\target_manager.cs   | C#       |         22 |          2 |          4 |         28 |
+| Total                                                                                        |          |        533 |         43 |         81 |        657 |
++----------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
