@@ -62,7 +62,7 @@ public class agent : Agent {
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
         //update the reward after the step penalty above
-        AddReward(normalize_reward((0.5f - sys.eval.dist_from_target()) * 0.1f));
+        AddReward(normalize_reward((0.1f - sys.eval.dist_from_target()) * 0.1f));
 
         if (sys.eval.is_stable) {
             goal_reached();
@@ -86,7 +86,7 @@ public class agent : Agent {
 
     }
     private void goal_reached() {
-        AddReward(4.0f);
+        AddReward(10.0f);
         EndEpisode();
     }
     private float normalize_reward(float reward) {
