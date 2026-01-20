@@ -75,10 +75,10 @@ public class agent : Agent {
     }
     private void set_beam(ActionSegment<float> action_segment) {
         float delta_angle = action_segment[0];
-        float angle = sys.beam_driver.get_angle() + delta_angle / 4f;
+        float angle = sys.beam_driver.get_angle() + delta_angle / 2f;
 
         var angle_diff = 0.5f - angle;
-        angle_diff = angle_diff * angle_diff * 4f;
+        angle_diff = angle_diff * angle_diff * 1f;
 
         AddReward(-normalize_reward(angle_diff));
         angle = Mathf.Clamp(angle, 0f, 1f);
