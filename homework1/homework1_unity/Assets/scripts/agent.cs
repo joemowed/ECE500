@@ -62,13 +62,13 @@ public class agent : Agent {
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
         //update the reward after the step penalty above
-        AddReward((0.5f - sys.eval.dist_from_target()) * 0.01f);
+        AddReward(normalize_reward((0.5f - sys.eval.dist_from_target()) * 0.01f));
 
         if (sys.eval.is_stable) {
             goal_reached();
         }
         if (sys.ball_driver.is_falling) {
-            AddReward(-4.0f);
+            AddReward(-10.0f);
             EndEpisode();
 
         }
@@ -79,8 +79,8 @@ public class agent : Agent {
 
         var angle_diff = 0.5f - angle;
         angle_diff = angle_diff * angle_diff * 4f;
-        AddReward(angle_diff);
 
+        AddReward(-normalize_reward(angle_diff));
         angle = Mathf.Clamp(angle, 0f, 1f);
         sys.beam_driver.set_angle(angle);
 
@@ -88,5 +88,8 @@ public class agent : Agent {
     private void goal_reached() {
         AddReward(4.0f);
         EndEpisode();
+    }
+    private float normalize_reward(float reward) {
+        return reward * Time.fixedDeltaTime;
     }
 }
