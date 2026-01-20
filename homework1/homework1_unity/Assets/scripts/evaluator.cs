@@ -3,9 +3,9 @@ using UnityEngine;
 public class evaluator : MonoBehaviour {
     public target_manager tm;
     public ball_driver bd;
-    private const float target_area = 0.03f; //area where ball is considered in the target zone as a percent of the beam length
-    private const float stable_time = 1f; //time ball must be in area to be considered stable
-    private const float stable_speed = 0.1f;//max speed of ball to be considered stable
+    private const float target_area = 0.02f; //area where ball is considered in the target zone as a percent of the beam length
+    private const float stable_time = 4f; //time ball must be in area to be considered stable
+    private const float stable_speed = 0.06f;//max speed of ball to be considered stable
     public float in_target_time { get; private set; }
     public bool is_stable { get; private set; }
 
