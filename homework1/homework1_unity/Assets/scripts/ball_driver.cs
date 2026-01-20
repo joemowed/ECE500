@@ -21,7 +21,6 @@ public class ball_driver : MonoBehaviour {
             impulse = Vector3.zero;
         }
         if (transform.position.y < 0) {
-            Debug.Log("falling ball");
             is_falling = true;
         }
     }

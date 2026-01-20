@@ -8,6 +8,7 @@ public class agent : Agent {
     public sys sys;
     private int current_episode = 0;
     private float cumulative_reward = 0f;
+    private float episode_time = 0f;
     public override void Initialize() {
         Debug.Log("Agent started");
         current_episode = 0;
@@ -29,7 +30,8 @@ public class agent : Agent {
     }
     public override void OnActionReceived(ActionBuffers actions) {
         set_beam(actions.ContinuousActions);
-        AddReward(-2f / MaxStep); //slap the agent for going slow
+        episode_time += Time.fixedDeltaTime;
+        AddReward(-episode_time * 0.1f); // exponetial slap the agent for going slow
         //update the reward after the step penalty above
         cumulative_reward = GetCumulativeReward();
         if (sys.eval.is_stable) {
@@ -44,6 +46,11 @@ public class agent : Agent {
     }
     private void set_beam(ActionSegment<float> action_segment) {
         float angle = action_segment[0];
+        if (angle < 0 || angle > 1) {
+            AddReward(1E-2F); //keep the angle in range 0-1
+            cumulative_reward = GetCumulativeReward();
+        }
+        angle = Mathf.Clamp(angle, 0, 1);
         sys.beam_driver.set_angle(angle);
 
     }
