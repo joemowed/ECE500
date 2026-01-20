@@ -9,6 +9,7 @@ public class network : MonoBehaviour {
     private UdpClient client;
     private IPEndPoint remoteEndPoint;
     private bool mode_send = true;
+    public inbound_packet data;
 
     void Start() {
         // 1. Setup the "Sender" to Python (Port 5005)
@@ -26,23 +27,26 @@ public class network : MonoBehaviour {
             data.stable_time_percent = sys.eval.stable_time_percent();
             data.is_stable = sys.eval.is_stable;
             send(data);
+            mode_send = false;
         } else {
             // 2. Check for incoming data (Receive)
             if (client.Available > 0) {
                 IPEndPoint anyIP = new IPEndPoint(IPAddress.Any, 0);
                 byte[] data = client.Receive(ref anyIP);
                 string text = Encoding.UTF8.GetString(data);
+                Debug.Log(text);
+                this.data = JsonUtility.FromJson<inbound_packet>(text);
+                Debug.Log($"Python sent: + {this.data.beam_angle}, {this.data.reset_system}");
                 mode_send = true;
-                Debug.Log("Python sent: " + text);
             }
         }
     }
 
-    public void send(outbound_packet message) {
-        var json = JsonUtility.ToJson(message);
+    public void send(outbound_packet packet) {
+        string json = JsonUtility.ToJson(packet);
         byte[] data = Encoding.UTF8.GetBytes(json);
         client.Send(data, data.Length, remoteEndPoint);
-        Debug.Log("Sent to Python: " + message);
+        Debug.Log("Sent to Python: " + packet);
     }
 
     void OnApplicationQuit() {
