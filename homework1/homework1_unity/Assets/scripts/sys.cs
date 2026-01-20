@@ -22,10 +22,17 @@ public class sys : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        pid_controller.paused = is_controller_paused;
+        update_mode();
         update_dist_bar();
         update_target_bar();
         update_mode_indicator();
+    }
+    private void update_mode() {
+        if (!is_controller_paused && is_pid_mode) {
+            pid_controller.paused = false;
+        } else {
+            pid_controller.paused = true;
+        }
     }
     private void update_dist_bar() {
 

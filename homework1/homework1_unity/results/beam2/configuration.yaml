@@ -14,11 +14,11 @@ behaviors:
       learning_rate_schedule: linear
       beta_schedule: linear
       epsilon_schedule: linear
-    checkpoint_interval: 500000
+    checkpoint_interval: 100000
     network_settings:
       normalize: false
-      hidden_units: 128
-      num_layers: 2
+      hidden_units: 512
+      num_layers: 3
       vis_encode_type: simple
       memory: null
       goal_conditioning_type: hyper
@@ -37,7 +37,7 @@ behaviors:
           deterministic: false
     init_path: null
     keep_checkpoints: 5
-    even_checkpoints: false
+    even_checkpoints: true
     max_steps: 500000
     time_horizon: 64
     summary_freq: 50000
@@ -59,7 +59,7 @@ engine_settings:
   width: 84
   height: 84
   quality_level: 5
-  time_scale: 20
+  time_scale: 100.0
   target_frame_rate: -1
   capture_frame_rate: 60
   no_graphics: false

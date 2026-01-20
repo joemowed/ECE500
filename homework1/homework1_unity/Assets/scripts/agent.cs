@@ -35,14 +35,15 @@ public class agent : Agent {
     public override void OnActionReceived(ActionBuffers actions) {
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
-        AddReward(-episode_time * 0.2f); // exponetial slap the agent for going slow
+        AddReward(-episode_time * 0.01f); // exponetial slap the agent for going slow
+        AddReward(sys.eval.in_target_time * 0.01f);
         //update the reward after the step penalty above
         cumulative_reward = GetCumulativeReward();
         if (sys.eval.is_stable) {
             goal_reached();
         }
         if (sys.ball_driver.is_falling) {
-            AddReward(-1.0f);
+            AddReward(-0.1f);
             cumulative_reward = GetCumulativeReward();
             EndEpisode();
 
@@ -50,10 +51,12 @@ public class agent : Agent {
     }
     private void set_beam(ActionSegment<float> action_segment) {
         float angle = action_segment[0];
+        angle += 0.5f;
         if (angle < 0 || angle > 1) {
-            AddReward(1E-2F); //keep the angle in range 0-1
+            AddReward(-1E-2F); //keep the angle in range 0-1
             cumulative_reward = GetCumulativeReward();
         }
+        //Debug.Log($"{angle}  :: {cumulative_reward}");
         angle = Mathf.Clamp(angle, 0, 1);
         sys.beam_driver.set_angle(angle);
 

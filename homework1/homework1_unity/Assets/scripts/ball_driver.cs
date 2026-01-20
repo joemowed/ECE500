@@ -22,6 +22,8 @@ public class ball_driver : MonoBehaviour {
         }
         if (transform.position.y < 0) {
             is_falling = true;
+        } else {
+            is_falling = false;
         }
     }
     public float get_pos() {
