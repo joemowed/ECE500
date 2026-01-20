@@ -2,80 +2,91 @@ using System.Linq;
 using Unity.MLAgents;
 using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class agent : Agent
-{
+public class agent : Agent {
     public sys sys;
     private int current_episode = 0;
-    private float cumulative_reward = 0f;
     private float episode_time = 0f;
     public Transform ball_transform;
-    public override void Initialize()
-    {
+    private float debug_log_angle;
+    private const float max_expected_ball_vel = 10f;
+    private int step;
+    public override void Initialize() {
         Debug.Log("Agent started");
         current_episode = 0;
-        cumulative_reward = 0;
     }
-    public override void OnEpisodeBegin()
-    {
+    public override void OnEpisodeBegin() {
         current_episode++; //track the number of episodes
-        cumulative_reward = 0f; //reset reward 
         episode_time = 0;
         sys.random_reset(); //reset w/ random start for the new run
 
     }
-    public override void CollectObservations(VectorSensor sensor)
-    {
+    public override void CollectObservations(VectorSensor sensor) {
+        // Collect raw observations
+        float ballPos = sys.ball_driver.get_pos();
+        float beamAngle = sys.beam_driver.get_angle();
+        float targetPos = sys.target_manager.get_target();
+        float inTarget = sys.eval.is_in_target() ? 1f : 0f;
+        float distFromTarget = sys.eval.dist_from_target();
+        float ballVel = sys.ball_driver.get_speed() / max_expected_ball_vel;
+        ballVel = Mathf.Clamp(ballVel, -1f, 1f);
 
-        sensor.AddObservation(sys.ball_driver.get_pos_vec3());
-        sensor.AddObservation(sys.ball_driver.get_velocity_vec3());
-        sensor.AddObservation(sys.ball_driver.get_pos());
-        sensor.AddObservation(sys.ball_driver.get_speed());
-        sensor.AddObservation(sys.beam_driver.get_angle());
-        sensor.AddObservation(sys.target_manager.get_target());
-        sensor.AddObservation(sys.eval.is_in_target());
-        sensor.AddObservation(sys.eval.dist_from_target());
+        // Add observations to the sensor
+        sensor.AddObservation(ballPos);
+        sensor.AddObservation(ballVel);
+        sensor.AddObservation(beamAngle);
+        sensor.AddObservation(targetPos);
+        sensor.AddObservation(inTarget);
+        sensor.AddObservation(distFromTarget);
+
+        // Print observations for debugging
+        // if (step == 50) {
+        //     Debug.Log(
+        //         $"OBS | ballPos={ballPos:F3} " +
+        //         $"ballVel={ballVel:F3} " +
+        //         $"beamAngle={beamAngle:F3} " +
+        //         $"targetPos={targetPos:F3} " +
+        //         $"inTarget={inTarget:F0} " +
+        //         $"distFromTarget={distFromTarget:F3}" +
+        //         $"angle={debug_log_angle:F3}"
+        //     );
+        //     step = 0;
+        // } else {
+        //     step++;
+        // }
     }
-    public override void OnActionReceived(ActionBuffers actions)
-    {
+
+    public override void OnActionReceived(ActionBuffers actions) {
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
-        AddReward(-episode_time * 0.01f); // exponetial slap the agent for going slow
-        AddReward(sys.eval.in_target_time * 0.1f);
         //update the reward after the step penalty above
-        cumulative_reward = GetCumulativeReward();
-        if (sys.eval.is_stable)
-        {
+        AddReward((0.5f - sys.eval.dist_from_target()) * 0.01f);
+
+        if (sys.eval.is_stable) {
             goal_reached();
         }
-        if (sys.ball_driver.is_falling)
-        {
-            AddReward(-10.0f);
-            cumulative_reward = GetCumulativeReward();
+        if (sys.ball_driver.is_falling) {
+            AddReward(-4.0f);
             EndEpisode();
 
         }
     }
-    private void set_beam(ActionSegment<float> action_segment)
-    {
-        float angle = action_segment[0];
-        float angle_max = 0.4f;
-        angle += 0.5f;
-        if (angle < angle_max || angle > 1 - angle_max)
-        {
-            AddReward(-0.1F); //keep the angle in range 0-1
-            cumulative_reward = GetCumulativeReward();
-        }
-        //Debug.Log($"{angle}  :: {cumulative_reward}");
-        angle = Mathf.Clamp(angle, angle_max, 1 - angle_max);
+    private void set_beam(ActionSegment<float> action_segment) {
+        float delta_angle = action_segment[0];
+        float angle = sys.beam_driver.get_angle() + delta_angle;
+
+        var angle_diff = 0.5f - angle;
+        angle_diff = angle_diff * angle_diff * 4f;
+        AddReward(angle_diff);
+
+        angle = Mathf.Clamp(angle, 0f, 1f);
         sys.beam_driver.set_angle(angle);
 
     }
-    private void goal_reached()
-    {
-        AddReward(7.0f);
-        cumulative_reward = GetCumulativeReward();
+    private void goal_reached() {
+        AddReward(4.0f);
         EndEpisode();
     }
 }

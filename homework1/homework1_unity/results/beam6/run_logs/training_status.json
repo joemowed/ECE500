@@ -1,0 +1,29 @@
+{
+    "beam_control": {
+        "checkpoints": [
+            {
+                "steps": 4955,
+                "file_path": "results\\beam6\\beam_control\\beam_control-4955.onnx",
+                "reward": 208.65791207154592,
+                "creation_time": 1768935278.1285415,
+                "auxillary_file_paths": [
+                    "results\\beam6\\beam_control\\beam_control-4955.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 4955,
+            "file_path": "results\\beam6\\beam_control.onnx",
+            "reward": 208.65791207154592,
+            "creation_time": 1768935278.1285415,
+            "auxillary_file_paths": [
+                "results\\beam6\\beam_control\\beam_control-4955.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.2.0.dev0",
+        "torch_version": "2.2.2+cu121"
+    }
+}
