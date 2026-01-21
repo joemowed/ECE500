@@ -63,12 +63,11 @@ public class agent : Agent {
         //update the reward after the step penalty above
         AddReward(normalize_reward((0.3f - sys.eval.dist_from_target()) * 0.1f));
         if (sys.eval.is_stable) {
-            Debug.Log(normalize_reward(1f));
-            AddReward(normalize_reward(1f));
+            //AddReward(normalize_reward(1f));
         }
 
         if (sys.eval.is_stable_complete) {
-            goal_reached();
+            //    goal_reached();
         }
         if (sys.ball_driver.is_falling) {
             AddReward(-10.0f);
@@ -78,7 +77,7 @@ public class agent : Agent {
     }
     private void set_beam(ActionSegment<float> action_segment) {
         float delta_angle = action_segment[0];
-        float angle = sys.beam_driver.get_angle() + delta_angle / 2f;
+        float angle = sys.beam_driver.get_angle() + delta_angle / 4f;
 
         var angle_diff = 0.5f - angle;
         angle_diff = angle_diff * angle_diff * 1f;
