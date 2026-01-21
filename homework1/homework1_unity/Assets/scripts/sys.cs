@@ -38,12 +38,17 @@ public class sys : MonoBehaviour {
 
         distance_bar.set_value(eval.dist_from_target());
     }
+    public void reset_target() {
+
+        float end_distance = ball_driver.end_distance;
+        target_manager.set_target(Random.Range(end_distance, 1 - end_distance));
+    }
     public void random_reset() {
         float end_distance = ball_driver.end_distance;
         beam_driver.reset_beam();
         ball_driver.reset_velocity();
         ball_driver.set_pos(Random.Range(end_distance, 1 - end_distance));
-        target_manager.set_target(Random.Range(end_distance, 1 - end_distance));
+        reset_target();
     }
     private void update_mode_indicator() {
         if (is_pid_mode) {

@@ -1,0 +1,65 @@
+{
+    "beam_control": {
+        "checkpoints": [
+            {
+                "steps": 843696,
+                "file_path": "results\\beam11\\beam_control\\beam_control-843696.onnx",
+                "reward": null,
+                "creation_time": 1768969856.337356,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-843696.pt"
+                ]
+            },
+            {
+                "steps": 864210,
+                "file_path": "results\\beam11\\beam_control\\beam_control-864210.onnx",
+                "reward": 1.004745670727321,
+                "creation_time": 1768969941.369782,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-864210.pt"
+                ]
+            },
+            {
+                "steps": 999994,
+                "file_path": "results\\beam11\\beam_control\\beam_control-999994.onnx",
+                "reward": 2.2687601149082184,
+                "creation_time": 1768970312.386715,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-999994.pt"
+                ]
+            },
+            {
+                "steps": 1499551,
+                "file_path": "results\\beam11\\beam_control\\beam_control-1499551.onnx",
+                "reward": 2.4736800715327263,
+                "creation_time": 1768971621.3192968,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-1499551.pt"
+                ]
+            },
+            {
+                "steps": 1861064,
+                "file_path": "results\\beam11\\beam_control\\beam_control-1861064.onnx",
+                "reward": null,
+                "creation_time": 1768972567.4180915,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-1861064.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 1861064,
+            "file_path": "results\\beam11\\beam_control.onnx",
+            "reward": null,
+            "creation_time": 1768972567.4180915,
+            "auxillary_file_paths": [
+                "results\\beam11\\beam_control\\beam_control-1861064.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.2.0.dev0",
+        "torch_version": "2.2.2+cu121"
+    }
+}

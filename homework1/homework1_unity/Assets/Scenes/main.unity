@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 1541304}
   - component: {fileID: 1541305}
   - component: {fileID: 1541306}
+  - component: {fileID: 1541307}
   m_Layer: 0
   m_Name: system
   m_TagString: Untagged
@@ -266,9 +267,8 @@ MonoBehaviour:
   agentParameters:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
-  MaxStep: 5000
+  MaxStep: 7500
   sys: {fileID: 1541298}
-  ball_transform: {fileID: 0}
 --- !u!114 &1541305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,6 +315,20 @@ MonoBehaviour:
   DecisionPeriod: 5
   DecisionStep: 0
   TakeActionsBetweenDecisions: 1
+--- !u!114 &1541307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dabe8d687ea6ef74a9fc4a72ef106881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  sys: {fileID: 1541298}
+  is_enabled: 1
 --- !u!1 &85442246
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,15 +2,6 @@
     "beam_control": {
         "checkpoints": [
             {
-                "steps": 999910,
-                "file_path": "results\\beam10-no-end\\beam_control\\beam_control-999910.onnx",
-                "reward": 1.7037910024325054,
-                "creation_time": 1768963008.7231617,
-                "auxillary_file_paths": [
-                    "results\\beam10-no-end\\beam_control\\beam_control-999910.pt"
-                ]
-            },
-            {
                 "steps": 1499880,
                 "file_path": "results\\beam10-no-end\\beam_control\\beam_control-1499880.onnx",
                 "reward": 2.4254493713378906,
@@ -45,15 +36,24 @@
                 "auxillary_file_paths": [
                     "results\\beam10-no-end\\beam_control\\beam_control-2005880.pt"
                 ]
+            },
+            {
+                "steps": 2083880,
+                "file_path": "results\\beam10-no-end\\beam_control\\beam_control-2083880.onnx",
+                "reward": null,
+                "creation_time": 1768965653.891086,
+                "auxillary_file_paths": [
+                    "results\\beam10-no-end\\beam_control\\beam_control-2083880.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 2005880,
+            "steps": 2083880,
             "file_path": "results\\beam10-no-end\\beam_control.onnx",
-            "reward": 2.838604545593262,
-            "creation_time": 1768965410.748731,
+            "reward": null,
+            "creation_time": 1768965653.891086,
             "auxillary_file_paths": [
-                "results\\beam10-no-end\\beam_control\\beam_control-2005880.pt"
+                "results\\beam10-no-end\\beam_control\\beam_control-2083880.pt"
             ]
         }
     },
