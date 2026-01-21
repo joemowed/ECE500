@@ -61,7 +61,7 @@ public class agent : Agent {
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
         //update the reward after the step penalty above
-        AddReward(normalize_reward((0.1f - sys.eval.dist_from_target()) * 0.1f));
+        AddReward(normalize_reward((0.3f - sys.eval.dist_from_target()) * 0.1f));
         if (sys.eval.is_stable) {
             Debug.Log(normalize_reward(1f));
             AddReward(normalize_reward(1f));
