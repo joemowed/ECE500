@@ -9,7 +9,6 @@ public class agent : Agent {
     public sys sys;
     private int current_episode = 0;
     private float episode_time = 0f;
-    public Transform ball_transform;
     private float debug_log_angle;
     private const float max_expected_ball_vel = 10f;
     private int step;
@@ -63,8 +62,12 @@ public class agent : Agent {
         episode_time += Time.fixedDeltaTime;
         //update the reward after the step penalty above
         AddReward(normalize_reward((0.1f - sys.eval.dist_from_target()) * 0.1f));
-
         if (sys.eval.is_stable) {
+            Debug.Log(normalize_reward(1f));
+            AddReward(normalize_reward(1f));
+        }
+
+        if (sys.eval.is_stable_complete) {
             goal_reached();
         }
         if (sys.ball_driver.is_falling) {

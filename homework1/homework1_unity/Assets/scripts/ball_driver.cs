@@ -65,7 +65,6 @@ public class ball_driver : MonoBehaviour {
     }
     public Vector3 get_velocity_vec3() {
         Vector3 vel = rb.linearVelocity;
-        vel.Normalize();
         return vel;
 
     }
