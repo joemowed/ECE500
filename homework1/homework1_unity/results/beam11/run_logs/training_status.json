@@ -2,58 +2,58 @@
     "beam_control": {
         "checkpoints": [
             {
-                "steps": 843696,
-                "file_path": "results\\beam11\\beam_control\\beam_control-843696.onnx",
+                "steps": 14499064,
+                "file_path": "results\\beam11\\beam_control\\beam_control-14499064.onnx",
+                "reward": -2.107638880610466,
+                "creation_time": 1769004275.7526808,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-14499064.pt"
+                ]
+            },
+            {
+                "steps": 14999064,
+                "file_path": "results\\beam11\\beam_control\\beam_control-14999064.onnx",
+                "reward": -2.737006041407585,
+                "creation_time": 1769005507.7562783,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-14999064.pt"
+                ]
+            },
+            {
+                "steps": 15499564,
+                "file_path": "results\\beam11\\beam_control\\beam_control-15499564.onnx",
+                "reward": -2.3353597044944765,
+                "creation_time": 1769006754.5033255,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-15499564.pt"
+                ]
+            },
+            {
+                "steps": 15556564,
+                "file_path": "results\\beam11\\beam_control\\beam_control-15556564.onnx",
+                "reward": -2.7909072525799274,
+                "creation_time": 1769006889.6274457,
+                "auxillary_file_paths": [
+                    "results\\beam11\\beam_control\\beam_control-15556564.pt"
+                ]
+            },
+            {
+                "steps": 15556564,
+                "file_path": "results\\beam11\\beam_control\\beam_control-15556564.onnx",
                 "reward": null,
-                "creation_time": 1768969856.337356,
+                "creation_time": 1769007063.9514074,
                 "auxillary_file_paths": [
-                    "results\\beam11\\beam_control\\beam_control-843696.pt"
-                ]
-            },
-            {
-                "steps": 864210,
-                "file_path": "results\\beam11\\beam_control\\beam_control-864210.onnx",
-                "reward": 1.004745670727321,
-                "creation_time": 1768969941.369782,
-                "auxillary_file_paths": [
-                    "results\\beam11\\beam_control\\beam_control-864210.pt"
-                ]
-            },
-            {
-                "steps": 999994,
-                "file_path": "results\\beam11\\beam_control\\beam_control-999994.onnx",
-                "reward": 2.2687601149082184,
-                "creation_time": 1768970312.386715,
-                "auxillary_file_paths": [
-                    "results\\beam11\\beam_control\\beam_control-999994.pt"
-                ]
-            },
-            {
-                "steps": 1499551,
-                "file_path": "results\\beam11\\beam_control\\beam_control-1499551.onnx",
-                "reward": 2.4736800715327263,
-                "creation_time": 1768971621.3192968,
-                "auxillary_file_paths": [
-                    "results\\beam11\\beam_control\\beam_control-1499551.pt"
-                ]
-            },
-            {
-                "steps": 1861064,
-                "file_path": "results\\beam11\\beam_control\\beam_control-1861064.onnx",
-                "reward": null,
-                "creation_time": 1768972567.4180915,
-                "auxillary_file_paths": [
-                    "results\\beam11\\beam_control\\beam_control-1861064.pt"
+                    "results\\beam11\\beam_control\\beam_control-15556564.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 1861064,
+            "steps": 15556564,
             "file_path": "results\\beam11\\beam_control.onnx",
             "reward": null,
-            "creation_time": 1768972567.4180915,
+            "creation_time": 1769007063.9514074,
             "auxillary_file_paths": [
-                "results\\beam11\\beam_control\\beam_control-1861064.pt"
+                "results\\beam11\\beam_control\\beam_control-15556564.pt"
             ]
         }
     },

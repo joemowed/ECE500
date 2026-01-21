@@ -63,9 +63,8 @@ public class agent : Agent {
         //update the reward after the step penalty above
         AddReward(normalize_reward((0.3f - sys.eval.dist_from_target()) * 0.1f));
         if (sys.eval.is_stable) {
-            //AddReward(normalize_reward(1f));
+            AddReward(normalize_reward(0.1f));
         }
-
         if (sys.eval.is_stable_complete) {
             //    goal_reached();
         }
