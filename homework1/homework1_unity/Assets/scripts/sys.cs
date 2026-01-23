@@ -13,6 +13,7 @@ public class sys : MonoBehaviour {
     public beam_driver beam_driver;
     public ball_driver ball_driver;
     public target_manager target_manager;
+    public agent ag;
     public bool is_controller_paused = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,10 +29,17 @@ public class sys : MonoBehaviour {
         update_mode_indicator();
     }
     private void update_mode() {
-        if (!is_controller_paused && is_pid_mode) {
-            pid_controller.paused = false;
-        } else {
+        if (is_controller_paused) {
+            ag.is_paused = true;
             pid_controller.paused = true;
+        } else {
+            if (is_pid_mode) {
+                pid_controller.paused = false;
+                ag.is_paused = true;
+            } else {
+                ag.is_paused = false;
+                pid_controller.paused = true;
+            }
         }
     }
     private void update_dist_bar() {
@@ -40,8 +48,7 @@ public class sys : MonoBehaviour {
     }
     public void reset_target() {
 
-        float end_distance = ball_driver.end_distance;
-        target_manager.set_target(Random.Range(end_distance, 1 - end_distance));
+        target_manager.set_target(Random.Range(0, 1));
     }
     public void random_reset() {
         float end_distance = ball_driver.end_distance;

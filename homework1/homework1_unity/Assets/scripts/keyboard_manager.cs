@@ -79,8 +79,11 @@ public class keyboard_manager : MonoBehaviour {
     }
     private void handle_arrow_pressed(float direction_mult) {
         if (kb.ctrlKey.isPressed) {
+            sys.is_controller_paused = true;
             rotate_beam(direction_mult);
             return;
+        } else {
+            sys.is_controller_paused = false;
         }
         if (kb.shiftKey.isPressed) {
             move_ball(direction_mult);

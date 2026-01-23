@@ -21,7 +21,7 @@ behaviors:
         gamma: 0.99
         strength: 1.0
     keep_checkpoints: 50
-    max_steps: 12000000
+    max_steps: 120000000
     time_horizon: 1000
     summary_freq: 12000
 env_settings:

@@ -12,6 +12,7 @@ public class agent : Agent {
     private float debug_log_angle;
     private const float max_expected_ball_vel = 10f;
     private int step;
+    public bool is_paused = false;
     public override void Initialize() {
         Debug.Log("Agent started");
         current_episode = 0;
@@ -19,6 +20,9 @@ public class agent : Agent {
     public override void OnEpisodeBegin() {
         current_episode++; //track the number of episodes
         episode_time = 0;
+        if (is_paused) {
+            return;
+        }
         sys.random_reset(); //reset w/ random start for the new run
 
     }
@@ -58,6 +62,9 @@ public class agent : Agent {
     }
 
     public override void OnActionReceived(ActionBuffers actions) {
+        if (is_paused) {
+            return;
+        }
         set_beam(actions.ContinuousActions);
         episode_time += Time.fixedDeltaTime;
         //update the reward after the step penalty above
@@ -66,7 +73,7 @@ public class agent : Agent {
             AddReward(normalize_reward(0.1f));
         }
         if (sys.eval.is_stable_complete) {
-            //    goal_reached();
+            AddReward(normalize_reward(0.2f));
         }
         if (sys.ball_driver.is_falling) {
             AddReward(-10.0f);
