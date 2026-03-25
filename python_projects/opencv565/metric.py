@@ -1,4 +1,5 @@
 import cv2
+import time
 import torch
 import onnxruntime as ort
 import numpy as np
@@ -18,12 +19,15 @@ if not cap.isOpened():
     raise RuntimeError("Cannot open webcam")
 
 # img = cv2.imread(IMG_PATH)
+prev_time = 0
 while True:
     ret, img = cap.read()
     if not ret:
         break
 
     assert img is not None, "file could not be read, check with os.path.exists()"
+    # Get dimensions
+    height, width = img.shape[:2]
 
     # Normalize to [0,1]
     img_norm = img.astype(np.float32) / 255.0
@@ -54,6 +58,14 @@ while True:
     # ----------------------------
     # Display
     # ----------------------------
+    current_time = time.time()
+    fps = 1 / (current_time - prev_time)
+    prev_time = current_time
+
+    # Convert FPS to string and display on the frame
+    fps_text = f"FPS: {int(fps)}"
+    cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)  #
+
     cv2.imshow("Input", img)
     cv2.imshow("Depth", depth_img)
     if cv2.waitKey(1) & 0xFF == ord("q"):
