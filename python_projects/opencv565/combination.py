@@ -23,8 +23,9 @@ sess = ort.InferenceSession(
 # ----------------------------
 # Load image with OpenCV
 # ----------------------------
-cap = gst.receive_stream()
-# cap = cv2.VideoCapture(0)
+#cap = gst.receive_stream()
+cap = cv2.VideoCapture(0)
+
 
 if not cap.isOpened():
     raise RuntimeError("Cannot open webcam")
@@ -44,6 +45,7 @@ while True:
     yolo.draw_bounding_boxes(img, detections)
     if depth_time + 0.33 < time.time():
         depth_map = m3d.run(img_AI)
+        depth_map = np.clip(depth_map,0,3)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
         depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
         labels = []
