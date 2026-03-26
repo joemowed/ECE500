@@ -3,7 +3,7 @@ import onnxruntime as ort
 import numpy as np
 class Metric3D:
     def __init__(self):
-        self.sess = ort.InferenceSession("models/metric3d-large.onnx", providers=["CUDAExecutionProvider"])
+        self.sess = ort.InferenceSession("models/metric3d-small.onnx", providers=["CUDAExecutionProvider"])
     def run(self,img:MatLike)->MatLike:
         mean = np.array([0.485, 0.456, 0.406], dtype=np.float32).reshape(3,1,1)
         std = np.array([0.229, 0.224, 0.225], dtype=np.float32).reshape(3,1,1)
