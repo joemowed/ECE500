@@ -1,0 +1,47 @@
+import cv2
+import sys
+import os
+os.environ["GST_DEBUG"] = "*:4"
+def receive_stream():
+    # GStreamer pipeline for receiving an H.264 UDP stream
+    # 'appsink' is essential for OpenCV to capture frames from the pipeline
+    # 'decodebin' automatically selects the right decoder
+    # 'videoconvert ! video/x-raw,format=BGR' converts to a format OpenCV can use (BGR format)
+    pipeline = (
+        "udpsrc port=5004 ! "
+        "application/x-rtp, media=video, encoding-name=H264 ! "
+        "rtpjitterbuffer latency=0 ! "
+        "rtph264depay ! "
+        "avdec_h264 ! "
+        "videoconvert ! "
+        "video/x-raw, format=BGR ! "
+        "appsink drop=1"
+    )
+
+    cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
+
+    if not cap.isOpened():
+        print("Cannot open video stream or file")
+        sys.exit()
+
+    while True:
+        ret, frame = cap.read()
+
+        if not ret:
+            print("Empty frame received. Exiting...")
+            break
+
+        # Display the resulting frame
+        cv2.imshow('Received Stream', frame)
+
+        # Press 'q' on the keyboard to exit
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
+    # Release the video capture object and close all windows
+    cap.release()
+    cv2.destroyAllWindows()
+
+if __name__ == '__main__':
+    receive_stream()
+
