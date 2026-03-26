@@ -47,6 +47,8 @@ while True:
         depth_map = m3d.run(img_AI)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
         depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
+        depth_img =  cv2.cvtColor(depth_img, cv2.COLOR_GRAY2RGB)
+
         depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
         wm.display("Depth", depth_img, corner="top_right")
         depth_time = time.time()
