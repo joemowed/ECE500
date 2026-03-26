@@ -17,8 +17,8 @@ ort_helpers.print_interface(sess)
 # ----------------------------
 # Load image with OpenCV
 # ----------------------------
-cap = gst.receive_stream()
-# cap = cv2.VideoCapture(0)
+#cap = gst.receive_stream()
+cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     raise RuntimeError("Cannot open webcam")

@@ -1,7 +1,8 @@
 import onnxruntime as ort
 import numpy as np
 import cv2
-def preprocess_yolo_image(img: np.ndarray, target_size=(640, 640)) -> np.ndarray:
+
+def convert_for_NN(img: np.ndarray) -> np.ndarray:
     """
     Preprocess an OpenCV image for YOLO model input using NumPy.
 
@@ -20,12 +21,7 @@ def preprocess_yolo_image(img: np.ndarray, target_size=(640, 640)) -> np.ndarray
 
     # 4. HWC -> CHW
     img_chw = np.transpose(img_norm, (2, 0, 1))
-
-    # 5. Add batch dimension: 1 x 3 x H x W
-    img_batch = np.expand_dims(img_chw, axis=0)
-
-    return img_batch
-
+    return img_chw
 def print_interface(session:ort.InferenceSession)->None:
 # 2. Get input details
     print("Model Inputs:")

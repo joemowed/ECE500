@@ -3,7 +3,6 @@ import time
 import torch
 import onnxruntime as ort
 import numpy as np
-import gst
 from torch._C import dtype
 
 IMG_PATH = "imgs/2026-03-25-090151.jpg"
