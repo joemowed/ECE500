@@ -32,6 +32,7 @@ if not cap.isOpened():
 
 # img = cv2.imread(IMG_PATH)
 prev_time = 0
+depth_time = time.time()
 while True:
     ret, img = cap.read()
     if not ret:
@@ -41,13 +42,16 @@ while True:
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
     yolo.draw_bounding_boxes(img,detections)
-    depth_map = m3d.run(img_AI)
+    depth_text  = ""
+    if(depth_time +0.33 < time.time()):
+        depth_map = m3d.run(img_AI)
+        min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
+        depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
+        depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
+        wm.display("Depth", depth_img, corner="top_right")
+        depth_time = time.time()
 
 
-
-    depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
-    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
-    depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
 
     current_time = time.time()
     fps = 1 / (current_time - prev_time)
@@ -55,9 +59,8 @@ while True:
     fps_text = f"FPS: {int(fps)}"
 
     cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
-    cv2.putText(depth_img, depth_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
+    cv2.putText(img, depth_text, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
     wm.display("RGB", img, corner="top_left")
-    wm.display("Depth", depth_img, corner="top_right")
 #     if cv2.waitKey(1) & 0xFF == ord('q'): break
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
