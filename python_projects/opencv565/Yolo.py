@@ -18,17 +18,20 @@ class Yolo:
         # We use [0] to get the first batch
         detections = output[0][0]
         return detections
-    def draw_bounding_boxes(self,img:MatLike,detections,draw_label=True):
-        for i in range(300):
+    def draw_bounding_boxes(self,img:MatLike,detections,draw_label=True,min_confidence=0.5):
+        print(type(detections))
+        print(detections.shape)
+        for data in  detections:
             # Extract the 6 values for this specific detection
-            x1, y1, x2, y2, score, class_id = detections[i]
+            x1, y1, x2, y2, score, class_id = data
 
             # 1. Filter out empty/low-confidence slots
-            if score > 0.5:
+            if score > min_confidence:
                 # 2. Convert coordinates to integers for OpenCV drawing
                 # NOTE: If these values are small (0.0 - 1.0), multiply them by
                 # your image width and height first!
                 left, top, right, bottom = int(x1), int(y1), int(x2), int(y2)
+                print(left,top,right,bottom)
 
                 # Draw the Bounding Box (Green, thickness of 2)
                 cv2.rectangle(img, (left, top), (right, bottom), (0, 255, 0), 2)

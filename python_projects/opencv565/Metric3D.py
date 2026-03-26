@@ -14,13 +14,27 @@ class Metric3D:
         return np.squeeze(depth_map)
     
     def get_box_average(self,img, x1, y1, x2, y2):
-        padding = 15
+        padding = 0
         # 1. Get image boundaries to prevent crashes
         h, w = img.shape[:2]
         
+        dx = x2-x1
+        dy = y2-y1
+        if(dy <0 or dx<0):
+            print("ERROR: BOUNDING BOX INVERTED")
+            return 0
+        dx/=4  
+        dy/=4
+        x1+=dx
+        x2-=dx
+        y1+=dy
+        y2-=dy
+        print("AVERGAE",x1,y1,x2,y2)
         # 2. Ensure coordinates are within image and are integers
         x1, y1 = max(0, int(x1+padding)), max(0, int(y1+padding))
         x2, y2 = min(w, int(x2-padding)), min(h, int(y2-padding))
+
+        print("INT",x1,y1,x2,y2)
         
         # 3. Crop the bounding box area (ROI)
         # Remember: OpenCV uses [y_start:y_end, x_start:x_end]
@@ -31,5 +45,6 @@ class Metric3D:
             print("NULL BOX")
             return 0
             
-        return np.mean(roi)
+        return (x1, y1, x2, y2, 0, np.mean(roi)    )
+        
 

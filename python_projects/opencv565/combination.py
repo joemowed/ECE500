@@ -49,11 +49,13 @@ while True:
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
         depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
         labels = []
-        for i in range(300):
-            x1, y1, x2, y2, score, class_id = detections[i]
+        depth_detections = np.zeros((300,6))
+        for i,data in enumerate(detections):
+            x1, y1, x2, y2, score, class_id = data
             if score > 0.5:
                 left, top, right, bottom = int(x1), int(y1), int(x2), int(y2)
-                mean_depth = m3d.get_box_average(depth_map, x1, y1, x2, y2)
+                depth_detections[i] = m3d.get_box_average(depth_map,x1,y1,x2,y2)
+                mean_depth = depth_detections[i][5]
                 labels.append((f"Depth: {mean_depth:.3f},", left, top))
         depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(
             np.uint8
@@ -69,7 +71,7 @@ while True:
                 (0, 255, 0),
                 2,
             )
-        yolo.draw_bounding_boxes(depth_img, detections, False)
+        yolo.draw_bounding_boxes(depth_img, depth_detections, False,-1)
         cv2.putText(
             depth_img,
             depth_text,
