@@ -46,25 +46,18 @@ while True:
 
 
     depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
-    print(depth_img.shape)
-    print(img.shape)
-    #
-    # min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
-    # depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
-    #
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
+    depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
+
     current_time = time.time()
     fps = 1 / (current_time - prev_time)
     prev_time = current_time
     fps_text = f"FPS: {int(fps)}"
 
-    cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)  #
-    cv2.imshow('depth',depth_img)
-    cv2.imshow('OpenCV',img)
-    cv2.moveWindow('depth',500,0)
-#     # frame = your_yolo_result
-#     # depth = your_metric3d_result
-    wm.display("RGB", img, corner="top_left", scale=0.5)
-    wm.display("Depth", depth_img, corner="top_right", scale=0.5)
+    cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
+    cv2.putText(img, depth_text, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
+    wm.display("RGB", img, corner="top_left")
+    wm.display("Depth", depth_img, corner="top_right")
 #     if cv2.waitKey(1) & 0xFF == ord('q'): break
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break

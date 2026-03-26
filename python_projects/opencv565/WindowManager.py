@@ -3,7 +3,7 @@ import numpy as np
 import tkinter as tk
 
 class WindowManager:
-    def __init__(self):
+    def __init__(self,scale=1.0):
         # 1. Get screen resolution using tkinter
         root = tk.Tk()
         self.screen_w = root.winfo_screenwidth()
@@ -12,15 +12,16 @@ class WindowManager:
         
         # Windows registry to track positions
         self.windows = []
+        self.scale =scale
 
-    def display(self, name, img, corner="top_left", scale=1.0):
+    def display(self, name, img, corner="top_left"):
         """
         Displays an image in a specific screen corner.
         Corners: 'top_left', 'top_right', 'bottom_left', 'bottom_right'
         """
         # Resize if requested
-        if scale != 1.0:
-            img = cv2.resize(img, (0, 0), fx=scale, fy=scale)
+        if self.scale != 1.0:
+            img = cv2.resize(img, (0, 0), fx=self.scale, fy=self.scale)
         
         h, w = img.shape[:2]
         
@@ -43,26 +44,6 @@ class WindowManager:
             
         cv2.imshow(name, img)
         cv2.moveWindow(name, x, y)
-
-    def stack_and_show(self, name, img_list, cols=2, corner="top_left"):
-        """
-        Easily stacks multiple images into a grid and shows in one corner.
-        """
-        # Ensure all images are same size and 3-channel
-        ref_h, ref_w = img_list[0].shape[:2]
-        processed_imgs = []
-        
-        for im in img_list:
-            if len(im.shape) == 2: # Convert Gray to BGR
-                im = cv2.cvtColor(im, cv2.COLOR_GRAY2BGR)
-            im = cv2.resize(im, (ref_w, ref_h))
-            processed_imgs.append(im)
-            
-        # Create grid
-        rows = [cv2.hconcat(processed_imgs[i:i+cols]) for i in range(0, len(processed_imgs), cols)]
-        combined = cv2.vconcat(rows)
-        
-        self.display(name, combined, corner=corner)
 
 # --- EXAMPLE USAGE ---
 # wm = WindowManager()
