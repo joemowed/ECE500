@@ -28,7 +28,6 @@ while True:
     assert img is not None, "file could not be read, check with os.path.exists()"
     # Get dimensions
     height, width = img.shape[:2]
-
     # Normalize to [0,1]
     img_norm = img.astype(np.float32) / 255.0
     mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
