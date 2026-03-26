@@ -55,7 +55,7 @@ while True:
     fps_text = f"FPS: {int(fps)}"
 
     cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
-    cv2.putText(img, depth_text, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
+    cv2.putText(depth_img, depth_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
     wm.display("RGB", img, corner="top_left")
     wm.display("Depth", depth_img, corner="top_right")
 #     if cv2.waitKey(1) & 0xFF == ord('q'): break
