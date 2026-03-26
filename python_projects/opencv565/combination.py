@@ -33,6 +33,7 @@ if not cap.isOpened():
 # img = cv2.imread(IMG_PATH)
 prev_time = 0
 depth_time = time.time()
+depth_text  = ""
 while True:
     ret, img = cap.read()
     if not ret:
@@ -42,7 +43,6 @@ while True:
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
     yolo.draw_bounding_boxes(img,detections)
-    depth_text  = ""
     if(depth_time +0.33 < time.time()):
         depth_map = m3d.run(img_AI)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
