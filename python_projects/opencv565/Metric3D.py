@@ -29,12 +29,10 @@ class Metric3D:
         x2-=dx
         y1+=dy
         y2-=dy
-        print("AVERGAE",x1,y1,x2,y2)
         # 2. Ensure coordinates are within image and are integers
         x1, y1 = max(0, int(x1+padding)), max(0, int(y1+padding))
         x2, y2 = min(w, int(x2-padding)), min(h, int(y2-padding))
 
-        print("INT",x1,y1,x2,y2)
         
         # 3. Crop the bounding box area (ROI)
         # Remember: OpenCV uses [y_start:y_end, x_start:x_end]
