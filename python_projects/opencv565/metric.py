@@ -3,6 +3,7 @@ import time
 import torch
 import onnxruntime as ort
 import numpy as np
+import gst
 from torch._C import dtype
 
 IMG_PATH = "imgs/2026-03-25-090151.jpg"
@@ -13,7 +14,8 @@ sess = ort.InferenceSession(
 # ----------------------------
 # Load image with OpenCV
 # ----------------------------
-cap = cv2.VideoCapture(0)  # 0 = default webcam
+# cap = gst.receive_stream()
+cap = cv2.VideoCapture(0)
 
 if not cap.isOpened():
     raise RuntimeError("Cannot open webcam")
@@ -49,11 +51,6 @@ while True:
     # Postprocess: Convert to OpenCV images
     # ----------------------------
 
-    # Depth map: normalize to 0-255 for visualization
-    depth_img = cv2.normalize(predicted_depth, None, 0, 255, cv2.NORM_MINMAX).astype(
-        np.uint8
-    )
-
     # ----------------------------
     # Display
     # ----------------------------
@@ -63,7 +60,16 @@ while True:
 
     # Convert FPS to string and display on the frame
     fps_text = f"FPS: {int(fps)}"
+    min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(predicted_depth)
+
+    depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
+
+    # Depth map: normalize to 0-255 for visualization
+    depth_img = cv2.normalize(predicted_depth, None, 0, 255, cv2.NORM_MINMAX).astype(
+        np.uint8
+    )
     cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)  #
+    cv2.putText(img, depth_text, (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
     cv2.imshow("Input", img)
     cv2.imshow("Depth", depth_img)
