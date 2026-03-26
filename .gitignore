@@ -1,5 +1,6 @@
 # For the python venv
 .venv
+runs
 
 
 # This .gitignore file should be placed at the root of your Unity project directory

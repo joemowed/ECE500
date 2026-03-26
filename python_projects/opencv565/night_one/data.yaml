@@ -1,0 +1,9 @@
+names:
+  0: enemy
+  1: red_block
+  2: yellow_block
+  3: green_block
+  4: purple_block
+path: /home/jmaloney/Documents/ECE500/python_projects/opencv565/night_one
+train: images/train
+val: images/val
