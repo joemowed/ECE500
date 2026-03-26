@@ -8,6 +8,7 @@ import gst
 import ort_helpers
 from Yolo import Yolo
 from Metric3D import Metric3D
+from WindowManager import WindowManager
 from torch._C import dtype
 
 
@@ -16,6 +17,7 @@ IMG_PATH = "imgs/2026-03-25-090151.jpg"
 yolo = Yolo("models/yolo26-night_one.onnx")
 m3d = Metric3D()
 
+wm = WindowManager()
 sess = ort.InferenceSession(
     "models/metric3d-small.onnx", providers=["CUDAExecutionProvider"]
 )
@@ -59,5 +61,10 @@ while True:
     cv2.imshow('depth',depth_img)
     cv2.imshow('OpenCV',img)
     cv2.moveWindow('depth',500,0)
+#     # frame = your_yolo_result
+#     # depth = your_metric3d_result
+    wm.display("RGB", img, corner="top_left", scale=0.5)
+    wm.display("Depth", depth_img, corner="top_right", scale=0.5)
+#     if cv2.waitKey(1) & 0xFF == ord('q'): break
     if cv2.waitKey(1) & 0xFF == ord("q"):
         break
