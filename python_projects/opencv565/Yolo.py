@@ -18,8 +18,7 @@ class Yolo:
         # We use [0] to get the first batch
         detections = output[0][0]
         return detections
-
-    def draw_bounding_boxes(self,img:MatLike,detections):
+    def draw_bounding_boxes(self,img:MatLike,detections,draw_label=True):
         for i in range(300):
             # Extract the 6 values for this specific detection
             x1, y1, x2, y2, score, class_id = detections[i]
@@ -35,16 +34,17 @@ class Yolo:
                 cv2.rectangle(img, (left, top), (right, bottom), (0, 255, 0), 2)
 
                 # Create and draw the Label
-                label = f"Class {int(class_id)}: {score:.2f}"
-                cv2.putText(
-                    img,
-                    label,
-                    (left, top - 10),
-                    cv2.FONT_HERSHEY_SIMPLEX,
-                    0.5,
-                    (0, 255, 0),
-                    2,
-                )
+                if(draw_label):
+                    label = f"Class {int(class_id)}: {score:.2f}"
+                    cv2.putText(
+                        img,
+                        label,
+                        (left, top - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        0.5,
+                        (0, 255, 0),
+                        2,
+                    )
 
     def preprocess_yolo_image(self,img: np.ndarray) -> np.ndarray:
 

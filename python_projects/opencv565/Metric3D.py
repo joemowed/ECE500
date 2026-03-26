@@ -12,4 +12,24 @@ class Metric3D:
         outputs = self.sess.run(["predicted_depth"], {"pixel_values": img})
         depth_map = outputs[0]
         return np.squeeze(depth_map)
+    
+    def get_box_average(self,img, x1, y1, x2, y2):
+        padding = 15
+        # 1. Get image boundaries to prevent crashes
+        h, w = img.shape[:2]
+        
+        # 2. Ensure coordinates are within image and are integers
+        x1, y1 = max(0, int(x1+padding)), max(0, int(y1+padding))
+        x2, y2 = min(w, int(x2-padding)), min(h, int(y2-padding))
+        
+        # 3. Crop the bounding box area (ROI)
+        # Remember: OpenCV uses [y_start:y_end, x_start:x_end]
+        roi = img[y1:y2, x1:x2]
+        
+        # 4. Return the average if the box isn't empty
+        if roi.size == 0:
+            print("NULL BOX")
+            return 0
+            
+        return np.mean(roi)
 

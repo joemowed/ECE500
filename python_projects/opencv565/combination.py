@@ -46,11 +46,29 @@ while True:
     if(depth_time +0.33 < time.time()):
         depth_map = m3d.run(img_AI)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
+        depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
+        labels = []
+        for i in range(300):
+            x1, y1, x2, y2, score, class_id = detections[i]
+            if score > 0.5:
+                left, top, right, bottom = int(x1), int(y1), int(x2), int(y2)
+                mean_depth = m3d.get_box_average(depth_map,x1,y1,x2,y2)
+                labels.append((f"Depth: {mean_depth:.3f},",left,top))
         depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(np.uint8)
         depth_img =  cv2.cvtColor(depth_img, cv2.COLOR_GRAY2RGB)
-
-        depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
-        wm.display("Depth", depth_img, corner="top_right")
+        for label,x,y in labels:
+                cv2.putText(
+                    depth_img,
+                    label,
+                    (x, y - 10),
+                    cv2.FONT_HERSHEY_SIMPLEX,
+                    0.5,
+                    (0, 255, 0),
+                    2,
+                )
+        yolo.draw_bounding_boxes(depth_img,detections,False)
+        cv2.putText(depth_img, depth_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)  #
+        wm.display("Depth", depth_img, corner="bottom_left")
         depth_time = time.time()
 
 
@@ -60,8 +78,7 @@ while True:
     prev_time = current_time
     fps_text = f"FPS: {int(fps)}"
 
-    cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
-    cv2.putText(img, depth_text, (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)  #
+    cv2.putText(img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255), 2)  #
     wm.display("RGB", img, corner="top_left")
 #     if cv2.waitKey(1) & 0xFF == ord('q'): break
     if cv2.waitKey(1) & 0xFF == ord("q"):
