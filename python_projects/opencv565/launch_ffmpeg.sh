@@ -1,8 +1,6 @@
 ffmpeg -f v4l2 -i /dev/video0 \
--vcodec libx264 \
--preset ultrafast \
--tune zerolatency \
--g 1 \
--bf 0 \
--f mpegts udp://<receiver_ip>:5002
+-vcodec mjpeg \
+-q:v 5 \
+-s 640x480 \
+-f mpegts udp://10.137.88.153:5002
 
