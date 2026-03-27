@@ -3,7 +3,7 @@ import onnxruntime as ort
 import numpy as np
 class Depth_Anything:
     def __init__(self):
-        self.sess = ort.InferenceSession("models/dany-v2.onnx", providers=["CUDAExecutionProvider"])
+        self.sess = ort.InferenceSession("models/dany-v2-large.onnx", providers=["CUDAExecutionProvider"])
     def run(self,img:MatLike)->MatLike:
         mean = np.array([0.485, 0.456, 0.406], dtype=np.float32).reshape(3,1,1)
         std = np.array([0.229, 0.224, 0.225], dtype=np.float32).reshape(3,1,1)

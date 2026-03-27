@@ -5,6 +5,7 @@ import onnxruntime as ort
 import numpy as np
 from yaml import DirectiveToken
 import gst
+from Depth_Anything import Depth_Anything
 import ort_helpers
 from Yolo import Yolo
 from Metric3D import Metric3D
@@ -14,7 +15,7 @@ from torch._C import dtype
 HEIGHT, WIDTH = 640, 480  # example, replace with your model's input size
 IMG_PATH = "imgs/2026-03-25-090151.jpg"
 yolo = Yolo("models/yolo26-night_one.onnx")
-m3d = Metric3D()
+m3d = Depth_Anything()
 detector = cv2.wechat_qrcode_WeChatQRCode()
 
 wm = WindowManager()
@@ -24,8 +25,8 @@ sess = ort.InferenceSession(
 # ----------------------------
 # Load image with OpenCV
 # ----------------------------
-cap = gst.receive_stream()
-# cap = cv2.VideoCapture(0)
+# cap = gst.receive_stream()
+cap = cv2.VideoCapture(0)
 
 
 if not cap.isOpened():
@@ -36,7 +37,6 @@ prev_time = 0
 depth_time = time.time()
 qr_time = time.time()
 depth_text = ""
-depth_not_running = True
 while True:
     ret, img = cap.read()
     if not ret:
@@ -45,7 +45,7 @@ while True:
     img = cv2.resize(img, (HEIGHT, WIDTH))
     QR_img = img.copy()
     strings, bbox_qr = (), ()
-    if qr_time + 0.1 < time.time():
+    if qr_time + 0.333 < time.time():
         strings, bbox_qr = detector.detectAndDecode(QR_img)
         qr_time = time.time()
         if bbox_qr != ():
@@ -65,11 +65,10 @@ while True:
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
     yolo.draw_bounding_boxes(img, detections)
-    if cv2.pollKey() & 0xFF == ord("d") and depth_not_running:
-        depth_not_running = False
+    if depth_time + 0.1 < time.time():
         # if depth_time + 0.5 < time.time():
         depth_map = m3d.run(img_AI)
-        depth_map = np.clip(depth_map, 0, 3)
+        # depth_map = np.clip(depth_map, 0, 3)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
         depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
         labels = []
@@ -105,9 +104,9 @@ while True:
             (0, 0, 255),
             2,
         )  #
+        depth_img= cv2.bitwise_not(depth_img) 
         wm.display("Depth", depth_img, corner="bottom_left")
         depth_time = time.time()
-        depth_not_running = True
 
     wm.display("RGB", img, corner="top_left")
     #     if cv2.waitKey(1) & 0xFF == ord('q'): break
