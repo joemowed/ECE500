@@ -15,6 +15,7 @@ HEIGHT, WIDTH = 640, 480  # example, replace with your model's input size
 IMG_PATH = "imgs/2026-03-25-090151.jpg"
 yolo = Yolo("models/yolo26-night_one.onnx")
 m3d = Metric3D()
+detector = cv2.wechat_qrcode_WeChatQRCode()
 
 wm = WindowManager()
 sess = ort.InferenceSession(
@@ -39,11 +40,13 @@ while True:
     if not ret:
         break
     assert img is not None, "file could not be read, check with os.path.exists()"
+    QR_img = img.copy() 
+    strings, bbox = detector.detectAndDecode(QR_img)
     img = cv2.resize(img, (HEIGHT, WIDTH))
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
     yolo.draw_bounding_boxes(img, detections)
-    if depth_time + 0.33 < time.time():
+    if depth_time + 0.5 < time.time():
         depth_map = m3d.run(img_AI)
         depth_map = np.clip(depth_map,0,3)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
@@ -89,6 +92,24 @@ while True:
     prev_time = current_time
     fps_text = f"FPS: {int(fps)}"
 
+    if bbox is not None:
+        for i in range(len(bbox)):
+            pts = bbox[i].astype(int)
+
+            # Draw box
+            cv2.polylines(QR_img, [pts], isClosed=True, color=(0,255,0), thickness=2)
+
+            # Put decoded text
+            cv2.putText(
+                QR_img,
+                strings[i],
+                tuple(pts[0]),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.6,
+                (0,255,0),
+                2
+            )
+    wm.display("CNN QR Read", QR_img, corner="top_right")
     cv2.putText(
         img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2
     )  #
