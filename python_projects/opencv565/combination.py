@@ -72,7 +72,7 @@ sess = ort.InferenceSession(
 # Load image with OpenCV
 # ----------------------------
 # UDP stream URL
-stream_url = "udp://@:5002"
+stream_url = "udp://@:5002?fifo_size=200000&overrun_nonfatal=1"
 
 # Add FFmpeg options to reduce packet loss issues
 cap = cv2.VideoCapture(stream_url, cv2.CAP_FFMPEG)
@@ -92,6 +92,7 @@ depth_text = ""
 one_shot_depth = True
 qr_searching = True
 qr_enable = True
+cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
 while True:
     ret, img = cap.read()
     if not ret:
