@@ -41,7 +41,7 @@ while True:
         break
     assert img is not None, "file could not be read, check with os.path.exists()"
     QR_img = img.copy() 
-    strings, bbox = detector.detectAndDecode(QR_img)
+    strings, bbox_qr = detector.detectAndDecode(QR_img)
     img = cv2.resize(img, (HEIGHT, WIDTH))
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
@@ -87,32 +87,12 @@ while True:
         wm.display("Depth", depth_img, corner="bottom_left")
         depth_time = time.time()
 
-    current_time = time.time()
-    fps = 1 / (current_time - prev_time)
-    prev_time = current_time
-    fps_text = f"FPS: {int(fps)}"
+    if bbox_qr !=():
+        pts = bbox_qr[0].astype(int)
+        cv2.polylines(QR_img, [pts], True, (0,255,255), 2)
+        cv2.putText(QR_img, strings[0], (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 2.0, (0, 255, 0), 2)
 
-    if bbox is not None:
-        for i in range(len(bbox)):
-            pts = bbox[i].astype(int)
-
-            # Draw box
-            cv2.polylines(QR_img, [pts], isClosed=True, color=(0,255,0), thickness=2)
-
-            # Put decoded text
-            cv2.putText(
-                QR_img,
-                strings[i],
-                tuple(pts[0]),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                0.6,
-                (0,255,0),
-                2
-            )
     wm.display("CNN QR Read", QR_img, corner="top_right")
-    cv2.putText(
-        img, fps_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2
-    )  #
     wm.display("RGB", img, corner="top_left")
     #     if cv2.waitKey(1) & 0xFF == ord('q'): break
     if cv2.waitKey(1) & 0xFF == ord("q"):

@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import tkinter as tk
+import time
 
 class WindowManager:
     def __init__(self,scale=1.0):
@@ -12,6 +13,7 @@ class WindowManager:
         
         # Windows registry to track positions
         self.windows = []
+        self.fps_timers = {}
         self.scale =scale
 
     def display(self, name, img, corner="top_left"):
@@ -41,7 +43,14 @@ class WindowManager:
         if name not in self.windows:
             cv2.namedWindow(name, cv2.WINDOW_AUTOSIZE)
             self.windows.append(name)
+            self.fps_timers[name] = time.time()
             
+        current_time = time.time()
+        fps = 1 / (current_time - self.fps_timers[name])
+        self.fps_timers[name] = current_time
+        fps_text = f"FPS: {int(fps)}"
+        height, width = img.shape[:2]
+        cv2.putText(img, fps_text, (10, height-60), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)  
         cv2.imshow(name, img)
         cv2.moveWindow(name, x, y)
 
