@@ -1,4 +1,5 @@
 import cv2
+import keyboard
 import time
 import torch
 import onnxruntime as ort
@@ -37,6 +38,9 @@ prev_time = 0
 depth_time = time.time()
 qr_time = time.time()
 depth_text = ""
+one_shot_depth = True
+qr_searching = True
+qr_enable = True
 while True:
     ret, img = cap.read()
     if not ret:
@@ -45,10 +49,11 @@ while True:
     img = cv2.resize(img, (HEIGHT, WIDTH))
     QR_img = img.copy()
     strings, bbox_qr = (), ()
-    if qr_time + 0.333 < time.time():
+    if qr_time + 0.33 < time.time() and qr_searching:
         strings, bbox_qr = detector.detectAndDecode(QR_img)
         qr_time = time.time()
         if bbox_qr != ():
+            qr_searching = False
             pts = bbox_qr[0].astype(int)
             cv2.polylines(QR_img, [pts], True, (0, 255, 255), 2)
             cv2.putText(
@@ -65,7 +70,8 @@ while True:
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
     yolo.draw_bounding_boxes(img, detections)
-    if depth_time + 0.1 < time.time():
+    if one_shot_depth:
+        one_shot_depth = False
         # if depth_time + 0.5 < time.time():
         depth_map = m3d.run(img_AI)
         # depth_map = np.clip(depth_map, 0, 3)
@@ -104,11 +110,16 @@ while True:
             (0, 0, 255),
             2,
         )  #
-        depth_img= cv2.bitwise_not(depth_img) 
+        depth_img = cv2.bitwise_not(depth_img)
         wm.display("Depth", depth_img, corner="bottom_left")
         depth_time = time.time()
 
     wm.display("RGB", img, corner="top_left")
     #     if cv2.waitKey(1) & 0xFF == ord('q'): break
-    if cv2.waitKey(1) & 0xFF == ord("q"):
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord("q"):
         break
+    if key == ord("d"):
+        one_shot_depth = True
+    if key == ord("r"):
+        qr_searching = True
