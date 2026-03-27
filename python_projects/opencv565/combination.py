@@ -24,7 +24,7 @@ sess = ort.InferenceSession(
 # ----------------------------
 # Load image with OpenCV
 # ----------------------------
-#cap = gst.receive_stream()
+# cap = gst.receive_stream()
 cap = cv2.VideoCapture(0)
 
 
@@ -34,30 +34,51 @@ if not cap.isOpened():
 # img = cv2.imread(IMG_PATH)
 prev_time = 0
 depth_time = time.time()
+qr_time = time.time()
 depth_text = ""
+depth_not_running = True
 while True:
     ret, img = cap.read()
     if not ret:
         break
     assert img is not None, "file could not be read, check with os.path.exists()"
-    QR_img = img.copy() 
-    strings, bbox_qr = detector.detectAndDecode(QR_img)
     img = cv2.resize(img, (HEIGHT, WIDTH))
+    QR_img = img.copy()
+    strings, bbox_qr = (), ()
+    if qr_time + 0.1 < time.time():
+        strings, bbox_qr = detector.detectAndDecode(QR_img)
+        qr_time = time.time()
+        if bbox_qr != ():
+            pts = bbox_qr[0].astype(int)
+            cv2.polylines(QR_img, [pts], True, (0, 255, 255), 2)
+            cv2.putText(
+                QR_img,
+                strings[0],
+                (10, 60),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                2.0,
+                (0, 255, 0),
+                2,
+            )
+
+        wm.display("CNN QR Read", QR_img, corner="top_right")
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
     yolo.draw_bounding_boxes(img, detections)
-    if depth_time + 0.5 < time.time():
+    if cv2.pollKey() & 0xFF == ord("d") and depth_not_running:
+        depth_not_running = False
+        # if depth_time + 0.5 < time.time():
         depth_map = m3d.run(img_AI)
-        depth_map = np.clip(depth_map,0,3)
+        depth_map = np.clip(depth_map, 0, 3)
         min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(depth_map)
         depth_text = f"MIN DEPTH: {float(min_val):.2f} MAX_DEPTH: {float(max_val):.2f}"
         labels = []
-        depth_detections = np.zeros((300,6))
-        for i,data in enumerate(detections):
+        depth_detections = np.zeros((300, 6))
+        for i, data in enumerate(detections):
             x1, y1, x2, y2, score, class_id = data
             if score > 0.5:
                 left, top, right, bottom = int(x1), int(y1), int(x2), int(y2)
-                depth_detections[i] = m3d.get_box_average(depth_map,x1,y1,x2,y2)
+                depth_detections[i] = m3d.get_box_average(depth_map, x1, y1, x2, y2)
                 mean_depth = depth_detections[i][5]
                 labels.append((f"Depth: {mean_depth:.3f},", left, top))
         depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(
@@ -74,7 +95,7 @@ while True:
                 (0, 255, 0),
                 2,
             )
-        yolo.draw_bounding_boxes(depth_img, depth_detections, False,-1)
+        yolo.draw_bounding_boxes(depth_img, depth_detections, False, -1)
         cv2.putText(
             depth_img,
             depth_text,
@@ -86,13 +107,8 @@ while True:
         )  #
         wm.display("Depth", depth_img, corner="bottom_left")
         depth_time = time.time()
+        depth_not_running = True
 
-    if bbox_qr !=():
-        pts = bbox_qr[0].astype(int)
-        cv2.polylines(QR_img, [pts], True, (0,255,255), 2)
-        cv2.putText(QR_img, strings[0], (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 2.0, (0, 255, 0), 2)
-
-    wm.display("CNN QR Read", QR_img, corner="top_right")
     wm.display("RGB", img, corner="top_left")
     #     if cv2.waitKey(1) & 0xFF == ord('q'): break
     if cv2.waitKey(1) & 0xFF == ord("q"):
