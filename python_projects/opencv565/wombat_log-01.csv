@@ -1,0 +1,12 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:6F:ED:ED, 2026-03-27 14:10:57, 2026-03-27 14:11:11,  6,  54, WPA, TKIP, PSK, -27,       15,        0,   0.  0.  0.  0,  11, 0999-wombat, 
+B8:27:EB:7E:52:7B, 2026-03-27 14:11:00, 2026-03-27 14:11:11,  6,  54, WPA, TKIP, PSK, -50,       10,        2,   0.  0.  0.  0,  11, 1007-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+76:54:B4:DB:3C:75, 2026-03-27 14:10:58, 2026-03-27 14:10:59, -85,        4, (not associated) ,glantu,SANYHI2020,maldi
+E2:4F:74:70:CB:31, 2026-03-27 14:10:59, 2026-03-27 14:10:59, -89,        1, (not associated) ,
+BA:11:D0:B0:9D:BC, 2026-03-27 14:10:59, 2026-03-27 14:11:00, -67,        6, AC:8B:A9:69:14:07,
+CC:47:40:AB:BD:85, 2026-03-27 14:11:03, 2026-03-27 14:11:03, -54,       10, (not associated) ,
+62:FF:35:1D:AD:C0, 2026-03-27 14:11:04, 2026-03-27 14:11:04, -51,        2, (not associated) ,
+

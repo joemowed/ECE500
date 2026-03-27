@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration
-INTERFACE="wlan0"
+INTERFACE="wlp0s20f3"
 MON_INTERFACE="${INTERFACE}mon"
 TARGET_STRING="wombat"
 OUTPUT_PREFIX="wombat_log"
