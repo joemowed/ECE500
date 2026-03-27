@@ -49,7 +49,7 @@ while True:
     img = cv2.resize(img, (HEIGHT, WIDTH))
     QR_img = img.copy()
     strings, bbox_qr = (), ()
-    if qr_time + 0.33 < time.time() and qr_searching:
+    if qr_searching:
         strings, bbox_qr = detector.detectAndDecode(QR_img)
         qr_time = time.time()
         if bbox_qr != ():
@@ -66,11 +66,11 @@ while True:
                 2,
             )
 
-        wm.display("CNN QR Read", QR_img, corner="top_right")
+        wm.display("CNN QR Read", QR_img, corner="bottom_right")
     img_AI = ort_helpers.convert_for_NN(img)
     detections = yolo.run(img_AI)
     yolo.draw_bounding_boxes(img, detections)
-    if one_shot_depth:
+    if depth_time + 0.5 < time.time():
         one_shot_depth = False
         # if depth_time + 0.5 < time.time():
         depth_map = m3d.run(img_AI)
