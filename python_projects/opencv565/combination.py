@@ -14,6 +14,7 @@ from Metric3D import Metric3D
 from WindowManager import WindowManager
 from torch._C import dtype
 import matplotlib.pyplot as plt
+import LatestFrame 
 
 FOV = 78  # example, replace with your model's input size
 plt.ion()
@@ -75,7 +76,7 @@ sess = ort.InferenceSession(
 stream_url = "udp://@:5002?fifo_size=200000&overrun_nonfatal=1"
 
 # Add FFmpeg options to reduce packet loss issues
-cap = cv2.VideoCapture(stream_url, cv2.CAP_FFMPEG)
+cap = cv2.LatestFrame(stream_url)
 cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)  # Keep only latest frame
 # cap = gst.receive_stream()
 # cap = cv2.VideoCapture(0)
