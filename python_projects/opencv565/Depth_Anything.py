@@ -18,7 +18,7 @@ class Depth_Anything:
         depth_map = outputs[0]
         return np.squeeze(depth_map)
 
-    def get_box_average(self, img, x1, y1, x2, y2):
+    def get_box_average(self, img, x1, y1, x2, y2, obj_class= 0 ):
         padding = 0
         # 1. Get image boundaries to prevent crashes
         h, w = img.shape[:2]
@@ -47,4 +47,4 @@ class Depth_Anything:
             print("NULL BOX")
             return 0
 
-        return (x1, y1, x2, y2, 0, np.mean(roi))
+        return (x1, y1, x2, y2, obj_class, np.mean(roi))

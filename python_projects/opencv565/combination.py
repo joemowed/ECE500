@@ -1,5 +1,5 @@
 import cv2
-import keyboard
+import math
 import time
 import torch
 import onnxruntime as ort
@@ -12,9 +12,28 @@ from Yolo import Yolo
 from Metric3D import Metric3D
 from WindowManager import WindowManager
 from torch._C import dtype
+import matplotlib.pyplot as plt
 
-HEIGHT, WIDTH = 640, 480  # example, replace with your model's input size
-IMG_PATH = "imgs/2026-03-25-090151.jpg"
+FOV = 78  # example, replace with your model's input size
+plt.ion()
+fig = plt.figure()
+ax = fig.add_subplot(111,projection='polar')
+sc = ax.scatter([],[])
+ax.set_theta_zero_location("N")  # N = North (up)
+ax.set_theta_direction(-1)  # clockwise
+ax.set_thetamin(-FOV/2)
+ax.set_thetamax(FOV/2)
+
+ax.set_rmax(1)
+plt.draw()
+plt.pause(0.1)
+
+def get_color(class_id:int):
+    if class_id == 1:
+        return (1,0,0)
+
+
+
 yolo = Yolo("models/yolo26-night_one.onnx")
 m3d = Depth_Anything()
 detector = cv2.wechat_qrcode_WeChatQRCode()
@@ -46,7 +65,7 @@ while True:
     if not ret:
         break
     assert img is not None, "file could not be read, check with os.path.exists()"
-    img = cv2.resize(img, (HEIGHT, WIDTH))
+    HEIGHT,WIDTH = img.shape[:2]
     QR_img = img.copy()
     strings, bbox_qr = (), ()
     if qr_searching:
@@ -83,7 +102,7 @@ while True:
             x1, y1, x2, y2, score, class_id = data
             if score > 0.5:
                 left, top, right, bottom = int(x1), int(y1), int(x2), int(y2)
-                depth_detections[i] = m3d.get_box_average(depth_map, x1, y1, x2, y2)
+                depth_detections[i] = m3d.get_box_average(depth_map, x1, y1, x2, y2,class_id)
                 mean_depth = depth_detections[i][5]
                 labels.append((f"Depth: {mean_depth:.3f},", left, top))
         depth_img = cv2.normalize(depth_map, None, 0, 255, cv2.NORM_MINMAX).astype(
@@ -110,9 +129,30 @@ while True:
             (0, 0, 255),
             2,
         )  #
+        angles,dist,colors = [],[],[]
+        for pt in depth_detections:
+            x1, y1, x2, y2, class_id, depth = pt
+            if x1==y1==y2==x2 ==0:
+                break
+            x = float((x2 + x1)/2 )
+            y = (y2 + y1)/2 
+            angle = (x/WIDTH -0.5)*FOV
+            print(angle)
+            colors.append(get_color(class_id))
+            angles.append(np.radians(angle))
+            depth = abs(depth-max_val)/max_val
+            dist.append(depth)
+            cv2.circle(depth_img, (int(x), int(y)), radius=5, color=(0, 0, 255), thickness=-1)
+        if not dist == []:
+            sc.set_offsets(np.c_[angles,dist])
+            sc.set_color(colors)
+            plt.draw()
+            plt.pause(0.01)
         depth_img = cv2.bitwise_not(depth_img)
         wm.display("Depth", depth_img, corner="bottom_left")
         depth_time = time.time()
+
+
 
     wm.display("RGB", img, corner="top_left")
     #     if cv2.waitKey(1) & 0xFF == ord('q'): break
