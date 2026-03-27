@@ -1,25 +1,40 @@
+import subprocess
+import numpy as np
 import cv2
 
-# UDP stream URL
-stream_url = "udp://@:5002"
+WIDTH = 640
+HEIGHT = 480
 
-# Add FFmpeg options to reduce packet loss issues
-cap = cv2.VideoCapture(stream_url, cv2.CAP_FFMPEG)
+cmd = [
+    "ffmpeg",
+    "-fflags",
+    "nobuffer",
+    "-flags",
+    "low_delay",
+    "-fflags",
+    "discardcorrupt",
+    "-analyzeduration",
+    "0",
+    "-probesize",
+    "32",
+    "-i",
+    "udp://@:5002",
+    "-f",
+    "rawvideo",
+    "-pix_fmt",
+    "bgr24",
+    "-",
+]
 
-if not cap.isOpened():
-    print("Failed to open stream")
-    exit()
+pipe = subprocess.Popen(cmd, stdout=subprocess.PIPE, bufsize=10**8)
 
 while True:
-    ret, frame = cap.read()
-    if not ret:
-        print("Frame not received. Waiting...")
+    raw_frame = pipe.stdout.read(WIDTH * HEIGHT * 3)
+    if len(raw_frame) != WIDTH * HEIGHT * 3:
         continue
 
-    cv2.imshow("UDP Stream", frame)
+    frame = np.frombuffer(raw_frame, np.uint8).reshape((HEIGHT, WIDTH, 3))
 
-    if cv2.waitKey(1) & 0xFF == ord("q"):
+    key = cv2.waitKey(1) & 0xFF
+    if key == ord("q"):
         break
-
-cap.release()
-cv2.destroyAllWindows()

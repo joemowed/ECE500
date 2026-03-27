@@ -14,7 +14,7 @@ from Metric3D import Metric3D
 from WindowManager import WindowManager
 from torch._C import dtype
 import matplotlib.pyplot as plt
-import LatestFrame 
+import LatestFrame as lf
 
 FOV = 78  # example, replace with your model's input size
 plt.ion()
@@ -73,17 +73,14 @@ sess = ort.InferenceSession(
 # Load image with OpenCV
 # ----------------------------
 # UDP stream URL
-stream_url = "udp://@:5002?fifo_size=200000&overrun_nonfatal=1"
-
+stream_url = (
+    "udp://@:5002?" "fifo_size=500000&" "overrun_nonfatal=1&" "fflags=discardcorrupt&"
+)
 # Add FFmpeg options to reduce packet loss issues
-cap = cv2.LatestFrame(stream_url)
-cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)  # Keep only latest frame
+cap = lf.LatestFrame(stream_url)
 # cap = gst.receive_stream()
 # cap = cv2.VideoCapture(0)
 
-
-if not cap.isOpened():
-    raise RuntimeError("Cannot open webcam")
 
 # img = cv2.imread(IMG_PATH)
 prev_time = 0
@@ -93,13 +90,11 @@ depth_text = ""
 one_shot_depth = True
 qr_searching = True
 qr_enable = True
-cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
 while True:
-    ret, img = cap.read()
-    if not ret:
-        break
+    img = cap.read()
     try:
-        assert img is not None, "file could not be read, check with os.path.exists()"
+        if img is None:
+            continue
         HEIGHT, WIDTH = img.shape[:2]
         QR_img = img.copy()
         strings, bbox_qr = (), ()
