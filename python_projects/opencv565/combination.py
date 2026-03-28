@@ -77,8 +77,8 @@ stream_url = (
     "udp://@:5002?" "fifo_size=500000&" "overrun_nonfatal=1&" "fflags=discardcorrupt&"
 )
 # Add FFmpeg options to reduce packet loss issues
-cap = lf.LatestFrame(stream_url)
-# cap = gst.receive_stream()
+# cap = lf.LatestFrame(stream_url)
+cap = gst.receive_stream()
 # cap = cv2.VideoCapture(0)
 
 
@@ -91,7 +91,7 @@ one_shot_depth = True
 qr_searching = True
 qr_enable = True
 while True:
-    img = cap.read()
+    ret, img = cap.read()
     try:
         if img is None:
             continue

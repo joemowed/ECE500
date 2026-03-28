@@ -23,6 +23,9 @@ def receive_stream():
 
     return cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
 
+
+if __name__ == "main":
+    cap = receive_stream()
     if not cap.isOpened():
         print("Cannot open video stream or file")
         sys.exit()
@@ -32,8 +35,8 @@ def receive_stream():
 
         if not ret:
             print("Empty frame received. Exiting...")
-            break
 
+            continue
         # Display the resulting frame
         cv2.imshow("Received Stream", frame)
 
@@ -44,7 +47,3 @@ def receive_stream():
     # Release the video capture object and close all windows
     cap.release()
     cv2.destroyAllWindows()
-
-
-if __name__ == "__main__":
-    receive_stream()
