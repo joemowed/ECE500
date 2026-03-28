@@ -1,30 +1,46 @@
-import os
-import cv2
 import threading
+import subprocess
+import numpy as np
+import cv2
 
 class LatestFrame:
-    def __init__(self, src):
-        # Tell FFmpeg to disable internal buffering and force low latency
-        os.environ["OPENCV_FFMPEG_CAPTURE_OPTIONS"] = "rtsp_transport;udp|fflags;nobuffer|flags;low_delay|framedrop;1"
+    def __init__(self, port):
+        self.width = 640
+        self.height = 480
+        self.cmd = [
+            'ffmpeg',
+            '-i', f'udp://0.0.0.0:{port}?fifo_size=500000&overrun_nonfatal=1',
+            '-f', 'image2pipe',
+            '-pix_fmt', 'bgr24',
+            '-vcodec', 'rawvideo', '-'
+        ]
         
-        self.cap = cv2.VideoCapture(src, cv2.CAP_FFMPEG)
-        
-        # Manually set the buffer size to 1 frame if the backend supports it
-        self.cap.set(cv2.CAP_PROP_BUFFERSIZE, 1)
+        # Start the ffmpeg subprocess
+        self.pipe = subprocess.Popen(self.cmd, stdout=subprocess.PIPE, bufsize=10**8)
         
         self.frame = None
         self.lock = threading.Lock()
         self.running = True
+
         threading.Thread(target=self.update, daemon=True).start()
+
     def update(self):
+        # Size of one frame in bytes (640 * 480 * 3 colors)
+        frame_size = self.width * self.height * 3
+        
         while self.running:
-            self.cap.grab()
-            ret, frame = self.cap.retrieve()
-            if ret:
-                with self.lock:
-                    self.frame = frame  # overwrite old frame
+            # Read exactly one frame's worth of bytes
+            raw_frame = self.pipe.stdout.read(frame_size)
+            
+            if len(raw_frame) != frame_size:
+                continue
+
+            # Convert bytes to numpy array
+            frame = np.frombuffer(raw_frame, dtype='uint8').reshape((self.height, self.width, 3))
+            
+            with self.lock:
+                self.frame = frame
 
     def read(self):
         with self.lock:
             return self.frame
-
