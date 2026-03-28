@@ -91,7 +91,7 @@ one_shot_depth = True
 qr_searching = True
 qr_enable = True
 while True:
-    ret, img = cap.read()
+    img = cap.read()
     try:
         if img is None:
             continue
