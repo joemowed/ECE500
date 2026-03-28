@@ -1,19 +1,15 @@
-import subprocess
-import numpy as np
 import cv2
-import LatestFrame as lf
+from LatestFrame import LatestFrame
 
-stream_url = (
-    "udp://@:5002?" "fifo_size=500000&" "overrun_nonfatal=1&" "fflags=discardcorrupt&"
-)
-# Add FFmpeg options to reduce packet loss issues
-cap = lf.LatestFrame(stream_url)
+# Just pass the port number now
+cap = LatestFrame(5002)
 
 while True:
     frame = cap.read()
     if frame is None:
         continue
-    cv2.imshow("ffmpeg test",frame)
-    key = cv2.waitKey(1) & 0xFF
-    if key == ord("q"):
+        
+    cv2.imshow("Ultra-Low Latency", frame)
+    
+    if cv2.waitKey(1) & 0xFF == ord("q"):
         break
