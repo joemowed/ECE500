@@ -77,8 +77,8 @@ stream_url = (
     "udp://@:5002?" "fifo_size=500000&" "overrun_nonfatal=1&" "fflags=discardcorrupt&"
 )
 # Add FFmpeg options to reduce packet loss issues
-# cap = lf.LatestFrame(stream_url)
-cap = gst.receive_stream()
+cap = lf.LatestFrame(stream_url)
+# cap = gst.receive_stream()
 # cap = cv2.VideoCapture(0)
 
 
