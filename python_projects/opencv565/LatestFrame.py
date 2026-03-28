@@ -10,12 +10,11 @@ class LatestFrame:
         # Aggressive flags to kill internal FFmpeg buffering
         self.cmd = [
             'ffmpeg',
-            '-loglevel', 'quiet',
             '-probesize', '32',
             '-analyzeduration', '0',
             '-fflags', 'nobuffer+discardcorrupt+flush_packets',
             '-flags', 'low_delay',
-            '-i', f'udp://0.0.0.0:{port}?fifo_size=5000&overrun_nonfatal=1',
+            '-i', f'udp://@:{port}?fifo_size=5000&overrun_nonfatal=1',
             '-f', 'image2pipe',
             '-pix_fmt', 'bgr24',
             '-vcodec', 'rawvideo', '-'

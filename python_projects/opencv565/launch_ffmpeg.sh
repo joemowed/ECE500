@@ -1,4 +1,4 @@
-ffmpeg -f v4l2 -framerate 30 -video_size 240x140 -i /dev/video0 \
+ffmpeg -f v4l2 -framerate 30 -video_size 640x480 -i /dev/video0 \
   -c:v libx264 -preset ultrafast -tune zerolatency \
   -x264-params "sliced-threads=1:slices=4" \
   -g 15 \
