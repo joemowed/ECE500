@@ -1,40 +1,19 @@
 import subprocess
 import numpy as np
 import cv2
+import LatestFrame as lf
 
-WIDTH = 640
-HEIGHT = 480
-
-cmd = [
-    "ffmpeg",
-    "-fflags",
-    "nobuffer",
-    "-flags",
-    "low_delay",
-    "-fflags",
-    "discardcorrupt",
-    "-analyzeduration",
-    "0",
-    "-probesize",
-    "32",
-    "-i",
-    "udp://@:5002",
-    "-f",
-    "rawvideo",
-    "-pix_fmt",
-    "bgr24",
-    "-",
-]
-
-pipe = subprocess.Popen(cmd, stdout=subprocess.PIPE, bufsize=10**8)
+stream_url = (
+    "udp://@:5002?" "fifo_size=500000&" "overrun_nonfatal=1&" "fflags=discardcorrupt&"
+)
+# Add FFmpeg options to reduce packet loss issues
+cap = lf.LatestFrame(stream_url)
 
 while True:
-    raw_frame = pipe.stdout.read(WIDTH * HEIGHT * 3)
-    if len(raw_frame) != WIDTH * HEIGHT * 3:
+    frame = cap.read()
+    if frame is None:
         continue
-
-    frame = np.frombuffer(raw_frame, np.uint8).reshape((HEIGHT, WIDTH, 3))
-
+    cv2.imshow("ffmpeg test",frame)
     key = cv2.waitKey(1) & 0xFF
     if key == ord("q"):
         break
