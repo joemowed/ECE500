@@ -73,11 +73,8 @@ sess = ort.InferenceSession(
 # Load image with OpenCV
 # ----------------------------
 # UDP stream URL
-stream_url = (
-    "udp://@:5002?" "fifo_size=500000&" "overrun_nonfatal=1&" "fflags=discardcorrupt&"
-)
 # Add FFmpeg options to reduce packet loss issues
-cap = lf.LatestFrame(stream_url)
+cap = lf.LatestFrame("5002")
 # cap = gst.receive_stream()
 # cap = cv2.VideoCapture(0)
 
@@ -95,6 +92,7 @@ while True:
     try:
         if img is None:
             continue
+        img = img.copy()
         HEIGHT, WIDTH = img.shape[:2]
         QR_img = img.copy()
         strings, bbox_qr = (), ()
