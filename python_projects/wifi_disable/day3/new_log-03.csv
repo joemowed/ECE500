@@ -1,0 +1,16 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:6F:ED:ED, 2026-04-01 13:04:29, 2026-04-01 13:04:41,  6,  54, WPA, TKIP, PSK, -30,       17,        0,   0.  0.  0.  0,  11, 0999-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+CA:28:57:97:69:24, 2026-04-01 13:04:36, 2026-04-01 13:04:36, -57,        1, (not associated) ,AvatarControlWifi
+66:5F:CD:FE:6B:95, 2026-04-01 13:04:36, 2026-04-01 13:04:36, -57,        1, (not associated) ,AvatarControlWifi
+9E:E7:AD:1E:AB:B7, 2026-04-01 13:04:36, 2026-04-01 13:04:36, -55,        1, (not associated) ,AvatarControlWifi
+F6:F1:76:2F:25:11, 2026-04-01 13:04:36, 2026-04-01 13:04:36, -57,        1, (not associated) ,AvatarControlWifi
+7E:6B:AA:DD:04:80, 2026-04-01 13:04:36, 2026-04-01 13:04:36, -60,        1, (not associated) ,AvatarControlWifi
+86:3A:59:F2:B9:71, 2026-04-01 13:04:36, 2026-04-01 13:04:36, -61,        1, (not associated) ,AvatarControlWifi
+46:F4:AA:1E:C3:CE, 2026-04-01 13:04:36, 2026-04-01 13:04:36, -61,        1, (not associated) ,AvatarControlWifi
+1E:BE:64:79:DD:3F, 2026-04-01 13:04:37, 2026-04-01 13:04:37, -80,        1, (not associated) ,
+D2:FC:0A:8A:B4:92, 2026-04-01 13:04:41, 2026-04-01 13:04:41, -86,        1, (not associated) ,
+58:6D:67:64:C3:91, 2026-04-01 13:04:41, 2026-04-01 13:04:41, -70,        1, (not associated) ,
+

@@ -1,0 +1,29 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:6F:ED:ED, 2026-04-01 13:03:46, 2026-04-01 13:03:57,  6,  54, WPA, TKIP, PSK, -27,       18,        0,   0.  0.  0.  0,  11, 0999-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+E2:BE:88:3F:45:2A, 2026-04-01 13:03:43, 2026-04-01 13:03:54, -81,       72, BC:9F:E4:CA:91:80,eduroam
+2A:BF:26:59:BC:ED, 2026-04-01 13:03:44, 2026-04-01 13:03:44, -65,        1, (not associated) ,eduroam
+E6:8E:3A:AA:D5:88, 2026-04-01 13:03:44, 2026-04-01 13:03:44, -66,        1, (not associated) ,eduroam
+DA:5F:75:47:4D:97, 2026-04-01 13:03:44, 2026-04-01 13:03:45, -83,        3, (not associated) ,
+A0:AF:BD:F2:65:3E, 2026-04-01 13:03:45, 2026-04-01 13:03:45, -83,        3, (not associated) ,
+48:5A:B6:17:96:DD, 2026-04-01 13:03:46, 2026-04-01 13:03:46, -92,        1, (not associated) ,
+C6:74:FD:3C:0B:8D, 2026-04-01 13:03:46, 2026-04-01 13:03:53, -80,       14, D0:D3:E0:ED:C2:01,
+AE:B7:AC:2F:41:EA, 2026-04-01 13:03:46, 2026-04-01 13:03:47, -63,        2, D0:D3:E0:ED:C6:80,
+C4:CB:76:AF:5C:A8, 2026-04-01 13:03:49, 2026-04-01 13:03:49, -56,        2, (not associated) ,
+CC:47:40:AB:BD:85, 2026-04-01 13:03:50, 2026-04-01 13:03:50, -55,        7, (not associated) ,
+24:EC:99:6D:F1:6C, 2026-04-01 13:03:53, 2026-04-01 13:03:53, -50,        1, (not associated) ,
+2A:1B:17:68:FB:00, 2026-04-01 13:03:54, 2026-04-01 13:03:54, -87,       74, D0:D3:E0:5A:43:81,
+16:6D:C0:EB:29:EB, 2026-04-01 13:03:56, 2026-04-01 13:03:56, -76,        1, (not associated) ,eduroam
+6E:E8:63:40:0A:14, 2026-04-01 13:03:56, 2026-04-01 13:03:56, -77,        1, (not associated) ,eduroam
+6A:ED:25:02:C4:84, 2026-04-01 13:03:56, 2026-04-01 13:03:56, -77,        1, (not associated) ,eduroam
+FA:C1:DF:FE:FF:42, 2026-04-01 13:03:56, 2026-04-01 13:03:56, -76,        1, (not associated) ,eduroam
+EC:2E:98:07:52:4D, 2026-04-01 13:03:56, 2026-04-01 13:03:56, -79,        6, (not associated) ,
+F6:34:83:69:6B:84, 2026-04-01 13:03:56, 2026-04-01 13:03:56, -65,        1, (not associated) ,eduroam
+76:12:B8:72:CA:D1, 2026-04-01 13:03:56, 2026-04-01 13:03:56, -51,        2, (not associated) ,
+AA:D4:EE:1B:AE:8B, 2026-04-01 13:03:57, 2026-04-01 13:03:57, -78,        1, (not associated) ,AvatarControlWifi
+B2:B5:F5:0E:36:C2, 2026-04-01 13:03:57, 2026-04-01 13:03:57, -78,        1, D0:D3:E0:ED:AA:00,
+EE:CD:DA:04:52:9D, 2026-04-01 13:03:57, 2026-04-01 13:03:57, -75,        1, (not associated) ,AvatarControlWifi
+56:AC:C7:33:65:05, 2026-04-01 13:03:57, 2026-04-01 13:03:57, -75,        1, (not associated) ,AvatarControlWifi
+

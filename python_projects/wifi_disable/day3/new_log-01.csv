@@ -1,0 +1,13 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:6F:ED:ED, 2026-04-01 13:02:01, 2026-04-01 13:02:12,  6,  54, WPA, TKIP, PSK, -27,       15,        0,   0.  0.  0.  0,  11, 0999-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+B6:39:DA:D0:67:03, 2026-04-01 13:02:05, 2026-04-01 13:02:05, -80,        1, (not associated) ,
+86:50:A0:92:73:C9, 2026-04-01 13:02:05, 2026-04-01 13:02:05, -74,        2, (not associated) ,ulsecure
+AE:09:77:26:DD:DE, 2026-04-01 13:02:07, 2026-04-01 13:02:07, -66,        4, (not associated) ,
+02:C4:D8:E3:6E:6A, 2026-04-01 13:02:08, 2026-04-01 13:02:08, -77,        1, (not associated) ,
+0A:27:07:18:EB:C4, 2026-04-01 13:02:09, 2026-04-01 13:02:14, -87,       13, BC:9F:E4:CB:8A:A0,eduroam
+8A:F2:2E:80:D0:DA, 2026-04-01 13:02:11, 2026-04-01 13:02:11, -78,        1, (not associated) ,
+58:6D:67:64:C3:91, 2026-04-01 13:02:12, 2026-04-01 13:02:12, -68,        1, (not associated) ,
+

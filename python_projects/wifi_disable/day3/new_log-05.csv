@@ -1,0 +1,13 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:A2:CD:A4, 2026-04-01 13:26:28, 2026-04-01 13:26:39,  6,  54, WPA, TKIP, PSK, -42,       14,       18,   0.  0.  0.  0,  11, 1032-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+24:EC:99:6D:F1:6C, 2026-04-01 13:26:26, 2026-04-01 13:26:27, -49,        5, (not associated) ,
+0C:29:8F:56:25:47, 2026-04-01 13:26:26, 2026-04-01 13:26:27, -87,        3, (not associated) ,
+EA:58:F9:EF:45:AD, 2026-04-01 13:26:27, 2026-04-01 13:26:27, -61,        2, (not associated) ,AvatarControlWifi
+14:13:33:29:51:53, 2026-04-01 13:26:28, 2026-04-01 13:26:36, -40,       24, B8:27:EB:A2:CD:A4,
+6E:6A:17:73:DA:D0, 2026-04-01 13:26:29, 2026-04-01 13:26:29, -64,        2, (not associated) ,
+0A:B8:0B:94:96:1C, 2026-04-01 13:26:35, 2026-04-01 13:26:35, -73,        1, (not associated) ,
+AE:CC:2D:CE:CD:3F, 2026-04-01 13:26:39, 2026-04-01 13:26:39, -86,        1, D0:D3:E0:ED:A5:60,
+

