@@ -10,8 +10,14 @@ mkdir -p "$OUTPUT_DIR"
 
 echo "[+] Starting target cycle for: $TARGET_STRING"
 
+# 1. Prepare Interface
+sudo airmon-ng check kill
+sudo airmon-ng start $INTERFACE
+
 # Main loop
 while true; do
+    # 2. Initial Scan to find channels
+    echo "[+] Scanning for '$TARGET_STRING' targets (15 seconds)..."
     # 1. Perform a quick 15s scan to find current channels for "wombat" targets
     sudo timeout 15s airodump-ng --essid-regex ".*$TARGET_STRING.*" -w "$OUTPUT_DIR/scan" --output-format csv "$INTERFACE" > /dev/null 2>&1
     
