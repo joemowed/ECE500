@@ -1,15 +1,15 @@
 
 BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
-C8:03:F5:3D:35:48, 2026-04-02 12:20:46, 2026-04-02 12:21:01,  1, 130, WPA2, CCMP, PSK, -44,       12,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
-C8:03:F5:7D:35:48, 2026-04-02 12:20:46, 2026-04-02 12:21:01,  1, 130, WPA2, CCMP, PSK, -43,       12,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
-C8:03:F5:BD:35:48, 2026-04-02 12:20:46, 2026-04-02 12:21:01,  1, 130, OPN, ,   , -43,       12,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
-C8:03:F5:3E:AA:88, 2026-04-02 12:20:47, 2026-04-02 12:21:01,  1, 130, WPA2, CCMP, PSK, -55,        6,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
-C8:03:F5:BE:AA:88, 2026-04-02 12:20:47, 2026-04-02 12:21:01,  1, 130, OPN, ,   , -55,       12,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
-16:7F:67:6A:AF:A0, 2026-04-02 12:20:49, 2026-04-02 12:21:00, 11,  65, WPA2, CCMP, PSK, -37,       15,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
-20:23:51:91:F3:34, 2026-04-02 12:20:49, 2026-04-02 12:21:00, 11, 130, WPA2, CCMP, PSK, -56,        8,        0,   0.  0.  0.  0,  28, Province.SynergyWifi.com_EXT, 
-C8:03:F5:BE:B0:F8, 2026-04-02 12:20:49, 2026-04-02 12:21:01, 11, 130, OPN, ,   , -58,       10,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
-C2:18:03:05:48:DA, 2026-04-02 12:20:54, 2026-04-02 12:20:58, 11,  65, WPA2, CCMP, PSK, -61,        4,        0,   0.  0.  0.  0,  26, DIRECT-da-HP M140 LaserJet, 
-C8:03:F5:7E:AA:88, 2026-04-02 12:20:57, 2026-04-02 12:21:01,  1, 130, WPA2, CCMP, PSK, -55,        6,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+6E:9C:1A:BC:2E:61, 2026-04-02 13:35:50, 2026-04-02 13:35:59,  1, 130, WPA2, CCMP, PSK, -22,       12,        2,   0.  0.  0.  0,  15, fbi surveliance, 
+16:7F:67:6A:AF:A0, 2026-04-02 13:35:53, 2026-04-02 13:35:57, 11,  65, WPA2, CCMP, PSK, -44,        5,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
+C8:03:F5:BE:AA:88, 2026-04-02 13:35:53, 2026-04-02 13:35:57, 11, 130, OPN, ,   , -58,        6,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+20:23:51:91:F3:34, 2026-04-02 13:35:53, 2026-04-02 13:35:57, 11, 130, WPA2, CCMP, PSK, -56,        7,        0,   0.  0.  0.  0,  28, Province.SynergyWifi.com_EXT, 
+C8:03:F5:3D:35:48, 2026-04-02 13:35:54, 2026-04-02 13:35:57,  6, 130, WPA2, CCMP, PSK, -45,        5,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:7D:35:48, 2026-04-02 13:35:54, 2026-04-02 13:35:57,  6, 130, WPA2, CCMP, PSK, -45,        5,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+C8:03:F5:BD:35:48, 2026-04-02 13:35:54, 2026-04-02 13:35:57,  6, 130, OPN, ,   , -44,        5,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+C2:18:03:05:48:DA, 2026-04-02 13:35:54, 2026-04-02 13:35:54, 11,  65, WPA2, CCMP, PSK, -59,        2,        0,   0.  0.  0.  0,  26, DIRECT-da-HP M140 LaserJet, 
 
 Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+50:84:92:06:B2:FC, 2026-04-02 13:35:50, 2026-04-02 13:35:51, -26,        7, (not associated) ,
+C8:03:F5:BD:35:48, 2026-04-02 13:35:58, 2026-04-02 13:35:58, -45,        2, (not associated) ,Province.Guest.WIFI
 

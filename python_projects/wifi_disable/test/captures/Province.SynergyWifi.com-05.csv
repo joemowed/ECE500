@@ -1,6 +1,0 @@
-
-BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
-C8:03:F5:3D:35:48, 2026-04-02 11:48:04, 2026-04-02 11:48:15, 11, 130, WPA2, CCMP, PSK, -45,       11,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
-
-Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
-

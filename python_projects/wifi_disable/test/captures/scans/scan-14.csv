@@ -1,10 +1,6 @@
 
 BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
-C8:03:F5:3D:35:48, 2026-04-02 12:22:52, 2026-04-02 12:22:53,  1, 130, WPA2, CCMP, PSK, -45,        3,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
-C8:03:F5:7D:35:48, 2026-04-02 12:22:52, 2026-04-02 12:22:53,  1, 130, WPA2, CCMP, PSK, -45,        3,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
-C8:03:F5:BD:35:48, 2026-04-02 12:22:52, 2026-04-02 12:22:53,  1, 130, OPN, ,   , -45,        3,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
-C2:18:03:05:48:DA, 2026-04-02 12:22:52, 2026-04-02 12:22:53, 11,  65, WPA2, CCMP, PSK, -60,        3,        0,   0.  0.  0.  0,  26, DIRECT-da-HP M140 LaserJet, 
-C8:03:F5:BE:AA:88, 2026-04-02 12:22:52, 2026-04-02 12:22:52,  1, 130, OPN, ,   , -57,        2,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+6E:9C:1A:BC:2E:61, 2026-04-02 13:36:44, 2026-04-02 13:36:45,  1, 130, WPA2, CCMP, PSK, -22,        5,        0,   0.  0.  0.  0,  15, fbi surveliance, 
 
 Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
 

