@@ -19,6 +19,7 @@ OUTPUT_DIR="./captures"
 SCAN_TIME="15s"
 MON_TIME="15s"
 mkdir -p "$OUTPUT_DIR/scans"
+mkdir -p "$OUTPUT_DIR/hashes"
 
 echo -e "${GREEN}Starting target cycle for: $TARGET_STRING${NC}"
 
@@ -64,7 +65,7 @@ while true; do
         # Use hcxpcapngtool to see if a crackable hash was actually caught
         # If it writes a file, we have a winner.
         LATEST_CAP=$(ls -t "$SESSION_CAP"*.cap | head -n 1)
-        TEST_HASH="$OUTPUT_DIR/check_${ESSID}.hc22000"
+        TEST_HASH="$OUTPUT_DIR/hashes/${ESSID}.hc22000"
         hcxpcapngtool -o "$TEST_HASH" "$LATEST_CAP" #> /dev/null 2>&1
 
         if [ -s "$TEST_HASH" ]; then
