@@ -1,0 +1,67 @@
+Province.SynergyWifi.com
+Province.SynergyWifi.com
+Province.SynergyWifi.com
+Province.SynergyWifi.com
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+Province.SynergyWifi.com_EXT
+Province.SynergyWifi.com_EXT
+Province.SynergyWifi.com_EXT
+Province.SynergyWifi.com_EXT
+Province.SynergyWifi.com_EXT
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+$HEX[33633a39303a36363a38353a64383a3661]
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
+Province.Guest.WIFI
+Province.Office.WIFI
+Province.SynergyWifi.com
+Province.SynergyWifi.com_EXT
+[LG_Portable A/C]afa0
