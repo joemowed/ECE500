@@ -1,0 +1,18 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+6E:9C:1A:BC:2E:61, 2026-04-02 12:42:43, 2026-04-02 12:43:12,  1, 130, WPA2, CCMP, PSK, -44,       21,        4,   0.  0.  0.  0,  15, fbi surveliance, 
+16:7F:67:6A:AF:A0, 2026-04-02 12:42:45, 2026-04-02 12:43:11, 11,  65, WPA2, CCMP, PSK, -48,       33,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
+C8:03:F5:3D:35:48, 2026-04-02 12:42:45, 2026-04-02 12:43:11, 11, 130, WPA2, CCMP, PSK, -49,       21,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:7D:35:48, 2026-04-02 12:42:45, 2026-04-02 12:43:11, 11, 130, WPA2, CCMP, PSK, -49,       21,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+C8:03:F5:BD:35:48, 2026-04-02 12:42:45, 2026-04-02 12:43:11, 11, 130, OPN, ,   , -49,       21,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+C8:03:F5:BE:AA:88, 2026-04-02 12:42:45, 2026-04-02 12:43:04, 11, 130, OPN, ,   , -57,        9,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+20:23:51:91:F3:34, 2026-04-02 12:42:45, 2026-04-02 12:43:11, 11, 130, WPA2, CCMP, PSK, -58,       18,        0,   0.  0.  0.  0,  28, Province.SynergyWifi.com_EXT, 
+C8:03:F5:3E:B0:F8, 2026-04-02 12:42:50, 2026-04-02 12:42:50,  1, 130, WPA2, CCMP, PSK, -58,        1,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:BE:B0:F8, 2026-04-02 12:42:50, 2026-04-02 12:42:50,  1, 130, OPN, ,   , -58,        3,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+C8:03:F5:7E:B0:F8, 2026-04-02 12:42:50, 2026-04-02 12:42:50,  1, 130, WPA2, CCMP, PSK, -58,        1,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+26:BE:9A:0A:3A:C7, 2026-04-02 12:42:46, 2026-04-02 12:43:00, -39,        8, (not associated) ,3c:90:66:85:d8:6a
+50:84:92:06:B2:FC, 2026-04-02 12:42:47, 2026-04-02 12:43:07, -23,       10, (not associated) ,
+6E:1B:53:80:9E:3E, 2026-04-02 12:42:53, 2026-04-02 12:42:53, -42,        1, (not associated) ,Province.SynergyWifi.com
+
