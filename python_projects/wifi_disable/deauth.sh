@@ -12,8 +12,9 @@ shopt -s globstar
 
 # Configuration
 # INTERFACE_PRE="wlp0s20f3"
-INTERFACE_PRE="wlx2a9401b9b39f"
-
+# INTERFACE="${INTERFACE_PRE}mon"
+# INTERFACE_PRE="wlx2a9401b9b39f"
+INTERFACE_PRE="wlx289401b9b39f"
 INTERFACE="wlan0mon"
 TARGET_STRING="fbi"
 OUTPUT_DIR="./captures"

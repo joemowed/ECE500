@@ -1,0 +1,19 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+1A:48:CA:1C:2D:34, 2026-04-02 15:21:16, 2026-04-02 15:21:24,  1, 130, WPA2, CCMP, PSK, -60,        9,        0,   0.  0.  0.  0,  15, fbi surveliance, 
+C8:03:F5:BD:35:48, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11, 130, OPN, ,   , -54,        4,      120,  10.175.  1. 67,  19, Province.Guest.WIFI, 
+20:23:51:91:F3:34, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11, 130, WPA2, CCMP, PSK, -63,        6,        0,   0.  0.  0.  0,  28, Province.SynergyWifi.com_EXT, 
+C8:03:F5:3D:35:48, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11, 130, WPA2, CCMP, PSK, -49,        4,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:7D:35:48, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11, 130, WPA2, CCMP, PSK, -49,        4,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+C2:18:03:05:48:DA, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11,  65, WPA2, CCMP, PSK, -72,        3,        0,   0.  0.  0.  0,  26, DIRECT-da-HP M140 LaserJet, 
+16:7F:67:6A:AF:A0, 2026-04-02 15:21:19, 2026-04-02 15:21:26, 11,  65, WPA2, CCMP, PSK, -50,        8,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
+C8:03:F5:3E:AA:88, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11, 130, WPA2, CCMP, PSK, -63,        5,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:7E:AA:88, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11, 130, WPA2, CCMP, PSK, -64,        5,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+C8:03:F5:BE:AA:88, 2026-04-02 15:21:19, 2026-04-02 15:21:23, 11, 130, OPN, ,   , -63,        5,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+C8:03:F5:7E:B0:F8, 2026-04-02 15:21:23, 2026-04-02 15:21:23,  6, 130, WPA2, CCMP, PSK, -67,        1,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+70:47:77:30:0A:68, 2026-04-02 15:21:23, 2026-04-02 15:21:23, 12,  -1, , ,   ,  -1,        0,        0,   0.  0.  0.  0,   0, , 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+C0:18:03:05:C8:DA, 2026-04-02 15:21:19, 2026-04-02 15:21:23,  -1,       60, C8:03:F5:BD:35:48,
+78:20:51:28:AB:94, 2026-04-02 15:21:19, 2026-04-02 15:21:23,  -1,       60, C8:03:F5:BD:35:48,
+

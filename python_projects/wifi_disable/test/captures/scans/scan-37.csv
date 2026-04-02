@@ -1,0 +1,16 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+1A:48:CA:1C:2D:34, 2026-04-02 15:24:34, 2026-04-02 15:24:42,  1, 130, WPA2, CCMP, PSK, -57,        5,        0,   0.  0.  0.  0,  15, fbi surveliance, 
+20:23:51:91:F3:34, 2026-04-02 15:24:37, 2026-04-02 15:24:44, 11, 130, WPA2, CCMP, PSK, -48,       16,        0,   0.  0.  0.  0,  28, Province.SynergyWifi.com_EXT, 
+C8:03:F5:BD:35:48, 2026-04-02 15:24:37, 2026-04-02 15:24:41, 11, 130, OPN, ,   , -48,        6,       48,  10.175.  1. 20,  19, Province.Guest.WIFI, 
+C8:03:F5:3D:35:48, 2026-04-02 15:24:37, 2026-04-02 15:24:41, 11, 130, WPA2, CCMP, PSK, -48,        6,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:7D:35:48, 2026-04-02 15:24:37, 2026-04-02 15:24:41, 11, 130, WPA2, CCMP, PSK, -48,        6,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+C2:18:03:05:48:DA, 2026-04-02 15:24:37, 2026-04-02 15:24:41, 11,  65, WPA2, CCMP, PSK, -59,        5,        0,   0.  0.  0.  0,  26, DIRECT-da-HP M140 LaserJet, 
+16:7F:67:6A:AF:A0, 2026-04-02 15:24:37, 2026-04-02 15:24:44, 11,  65, WPA2, CCMP, PSK, -36,       14,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
+C8:03:F5:BE:AA:88, 2026-04-02 15:24:37, 2026-04-02 15:24:41, 11, 130, OPN, ,   , -57,        4,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+70:47:77:30:0A:68, 2026-04-02 15:24:41, 2026-04-02 15:24:41, 12,  -1, , ,   ,  -1,        0,        0,   0.  0.  0.  0,   0, , 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+C0:18:03:05:C8:DA, 2026-04-02 15:24:37, 2026-04-02 15:24:41,  -1,       17, C8:03:F5:BD:35:48,
+78:20:51:28:AB:94, 2026-04-02 15:24:37, 2026-04-02 15:24:41,  -1,       31, C8:03:F5:BD:35:48,
+
