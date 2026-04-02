@@ -1,12 +1,11 @@
 
 BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
-C8:03:F5:3D:35:48, 2026-04-02 13:19:27, 2026-04-02 13:19:33, 11, 130, WPA2, CCMP, PSK, -46,        6,        0,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
-C8:03:F5:7D:35:48, 2026-04-02 13:19:27, 2026-04-02 13:19:33, 11, 130, WPA2, CCMP, PSK, -47,        6,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
-C8:03:F5:BD:35:48, 2026-04-02 13:19:27, 2026-04-02 13:19:33, 11, 130, OPN, ,   , -47,        6,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
-16:7F:67:6A:AF:A0, 2026-04-02 13:19:27, 2026-04-02 13:19:33, 11,  65, WPA2, CCMP, PSK, -41,        7,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
-20:23:51:91:F3:34, 2026-04-02 13:19:27, 2026-04-02 13:19:33, 11, 130, WPA2, CCMP, PSK, -55,        7,        0,   0.  0.  0.  0,  28, Province.SynergyWifi.com_EXT, 
-6E:9C:1A:BC:2E:61, 2026-04-02 13:19:27, 2026-04-02 13:19:35,  1, 130, WPA2, CCMP, PSK, -39,       11,        0,   0.  0.  0.  0,  15, fbi surveliance, 
+6E:9C:1A:BC:2E:61, 2026-04-02 14:19:37, 2026-04-02 14:19:45,  1, 130, WPA2, CCMP, PSK, -39,        7,        0,   0.  0.  0.  0,  15, fbi surveliance, 
+16:7F:67:6A:AF:A0, 2026-04-02 14:19:40, 2026-04-02 14:19:44, 11,  65, WPA2, CCMP, PSK, -45,        8,        0,   0.  0.  0.  0,  21, [LG_Portable A/C]afa0, 
+C8:03:F5:3D:35:48, 2026-04-02 14:19:40, 2026-04-02 14:19:44, 11, 130, WPA2, CCMP, PSK, -43,        3,        1,   0.  0.  0.  0,  24, Province.SynergyWifi.com, 
+C8:03:F5:7D:35:48, 2026-04-02 14:19:40, 2026-04-02 14:19:44, 11, 130, WPA2, CCMP, PSK, -44,        3,        0,   0.  0.  0.  0,  20, Province.Office.WIFI, 
+C8:03:F5:BD:35:48, 2026-04-02 14:19:40, 2026-04-02 14:19:44, 11, 130, OPN, ,   , -44,        4,        0,   0.  0.  0.  0,  19, Province.Guest.WIFI, 
 
 Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
-50:84:92:06:B2:FC, 2026-04-02 13:19:27, 2026-04-02 13:19:27, -27,        6, (not associated) ,
+50:84:92:06:B2:FC, 2026-04-02 14:19:37, 2026-04-02 14:19:41, -36,       23, 6E:9C:1A:BC:2E:61,
 

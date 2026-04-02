@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE detection-run SYSTEM "http://kismetwireless.net/kismet-3.1.0.dtd">
 
-<detection-run kismet-version="airodump-ng-1.0" start-time="Thu Apr  2 13:30:52 2026">
+<detection-run kismet-version="airodump-ng-1.0" start-time="Thu Apr  2 14:25:49 2026">
 
-	<wireless-network number="1" type="infrastructure" first-time="Thu Apr  2 13:30:52 2026" last-time="Thu Apr  2 13:30:59 2026">
-		<SSID first-time="Thu Apr  2 13:30:52 2026" last-time="Thu Apr  2 13:30:59 2026">
+	<wireless-network number="1" type="infrastructure" first-time="Thu Apr  2 14:25:49 2026" last-time="Thu Apr  2 14:25:56 2026">
+		<SSID first-time="Thu Apr  2 14:25:49 2026" last-time="Thu Apr  2 14:25:56 2026">
 			<type>Beacon</type>
 			<max-rate>130.000000</max-rate>
-			<packets>10</packets>
+			<packets>7</packets>
 			<beaconrate>10</beaconrate>
 			<encryption>WPA+PSK</encryption>
 			<encryption>WPA+AES-CCM</encryption>
@@ -16,7 +16,7 @@
 		<BSSID>6E:9C:1A:BC:2E:61</BSSID>
 		<manuf>Unknown</manuf>
 		<channel>1</channel>
-		<freqmhz>2412 10</freqmhz>
+		<freqmhz>2412 12</freqmhz>
 		<maxseenrate>130000</maxseenrate>
 		<carrier>IEEE 802.11b+</carrier>
 		<encoding>CCK</encoding>
@@ -24,34 +24,71 @@
 			<LLC>0</LLC>
 			<data>0</data>
 			<crypt>0</crypt>
-			<total>10</total>
+			<total>12</total>
 			<fragments>0</fragments>
 			<retries>0</retries>
 		</packets>
 		<datasize>0</datasize>
+		<wireless-client number="1" type="established" first-time="Thu Apr  2 14:25:50 2026" last-time="Thu Apr  2 14:25:59 2026">
+			<client-mac>50:84:92:06:B2:FC</client-mac>
+			<client-manuf>Intel Corporate</client-manuf>
+			<SSID first-time="Thu Apr  2 14:25:50 2026" last-time="Thu Apr  2 14:25:59 2026">
+				<type>Probe Request</type>
+				<max-rate>54.000000</max-rate>
+				<packets>1</packets>
+				<encryption>None</encryption>
+				<ssid>fbi surveliance</ssid>
+			</SSID>
+			<channel>10</channel>
+			<maxseenrate>1.000000</maxseenrate>
+			<carrier>IEEE 802.11b+</carrier>
+			<encoding>CCK</encoding>
+			<packets>
+				<LLC>0</LLC>
+				<data>0</data>
+				<crypt>0</crypt>
+				<total>13</total>
+				<fragments>0</fragments>
+				<retries>0</retries>
+			</packets>
+			<snr-info>
+				<last_signal_dbm>-41</last_signal_dbm>
+				<last_noise_dbm>0</last_noise_dbm>
+				<last_signal_rssi>-41</last_signal_rssi>
+				<last_noise_rssi>0</last_noise_rssi>
+				<min_signal_dbm>-41</min_signal_dbm>
+				<min_noise_dbm>0</min_noise_dbm>
+				<min_signal_rssi>1024</min_signal_rssi>
+				<min_noise_rssi>1024</min_noise_rssi>
+				<max_signal_dbm>-41</max_signal_dbm>
+				<max_noise_dbm>0</max_noise_dbm>
+				<max_signal_rssi>-41</max_signal_rssi>
+				<max_noise_rssi>0</max_noise_rssi>
+			</snr-info>
+		</wireless-client>
 		<snr-info>
-			<last_signal_dbm>-22</last_signal_dbm>
+			<last_signal_dbm>-54</last_signal_dbm>
 			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-22</last_signal_rssi>
+			<last_signal_rssi>-54</last_signal_rssi>
 			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-22</min_signal_dbm>
+			<min_signal_dbm>-54</min_signal_dbm>
 			<min_noise_dbm>0</min_noise_dbm>
 			<min_signal_rssi>1024</min_signal_rssi>
 			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-22</max_signal_dbm>
+			<max_signal_dbm>-54</max_signal_dbm>
 			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-22</max_signal_rssi>
+			<max_signal_rssi>-54</max_signal_rssi>
 			<max_noise_rssi>0</max_noise_rssi>
 		</snr-info>
-		<bsstimestamp>2987315594</bsstimestamp>
+		<bsstimestamp>6284288411</bsstimestamp>
 		<cdp-device></cdp-device>
 		<cdp-portid></cdp-portid>
 	</wireless-network>
-	<wireless-network number="2" type="infrastructure" first-time="Thu Apr  2 13:30:54 2026" last-time="Thu Apr  2 13:31:01 2026">
-		<SSID first-time="Thu Apr  2 13:30:54 2026" last-time="Thu Apr  2 13:31:01 2026">
+	<wireless-network number="2" type="infrastructure" first-time="Thu Apr  2 14:25:51 2026" last-time="Thu Apr  2 14:25:59 2026">
+		<SSID first-time="Thu Apr  2 14:25:51 2026" last-time="Thu Apr  2 14:25:59 2026">
 			<type>Beacon</type>
 			<max-rate>65.000000</max-rate>
-			<packets>10</packets>
+			<packets>14</packets>
 			<beaconrate>10</beaconrate>
 			<encryption>WPA+PSK</encryption>
 			<encryption>WPA+AES-CCM</encryption>
@@ -60,7 +97,7 @@
 		<BSSID>16:7F:67:6A:AF:A0</BSSID>
 		<manuf>Unknown</manuf>
 		<channel>11</channel>
-		<freqmhz>2462 10</freqmhz>
+		<freqmhz>2462 21</freqmhz>
 		<maxseenrate>65000</maxseenrate>
 		<carrier>IEEE 802.11b+</carrier>
 		<encoding>CCK</encoding>
@@ -68,94 +105,212 @@
 			<LLC>0</LLC>
 			<data>0</data>
 			<crypt>0</crypt>
+			<total>21</total>
+			<fragments>0</fragments>
+			<retries>0</retries>
+		</packets>
+		<datasize>0</datasize>
+		<snr-info>
+			<last_signal_dbm>-41</last_signal_dbm>
+			<last_noise_dbm>0</last_noise_dbm>
+			<last_signal_rssi>-41</last_signal_rssi>
+			<last_noise_rssi>0</last_noise_rssi>
+			<min_signal_dbm>-41</min_signal_dbm>
+			<min_noise_dbm>0</min_noise_dbm>
+			<min_signal_rssi>1024</min_signal_rssi>
+			<min_noise_rssi>1024</min_noise_rssi>
+			<max_signal_dbm>-41</max_signal_dbm>
+			<max_noise_dbm>0</max_noise_dbm>
+			<max_signal_rssi>-41</max_signal_rssi>
+			<max_noise_rssi>0</max_noise_rssi>
+		</snr-info>
+		<bsstimestamp>469170979796</bsstimestamp>
+		<cdp-device></cdp-device>
+		<cdp-portid></cdp-portid>
+	</wireless-network>
+	<wireless-network number="3" type="infrastructure" first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:56 2026">
+		<SSID first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:56 2026">
+			<type>Beacon</type>
+			<max-rate>130.000000</max-rate>
+			<packets>6</packets>
+			<beaconrate>10</beaconrate>
+			<encryption>WPA+PSK</encryption>
+			<encryption>WPA+AES-CCM</encryption>
+			<essid cloaked="false">Province.SynergyWifi.com</essid>
+		</SSID>
+		<BSSID>C8:03:F5:3D:35:48</BSSID>
+		<manuf>Ruckus Wireless</manuf>
+		<channel>11</channel>
+		<freqmhz>2462 6</freqmhz>
+		<maxseenrate>130000</maxseenrate>
+		<carrier>IEEE 802.11b+</carrier>
+		<encoding>CCK</encoding>
+		<packets>
+			<LLC>0</LLC>
+			<data>0</data>
+			<crypt>0</crypt>
+			<total>6</total>
+			<fragments>0</fragments>
+			<retries>0</retries>
+		</packets>
+		<datasize>0</datasize>
+		<snr-info>
+			<last_signal_dbm>-45</last_signal_dbm>
+			<last_noise_dbm>0</last_noise_dbm>
+			<last_signal_rssi>-45</last_signal_rssi>
+			<last_noise_rssi>0</last_noise_rssi>
+			<min_signal_dbm>-45</min_signal_dbm>
+			<min_noise_dbm>0</min_noise_dbm>
+			<min_signal_rssi>1024</min_signal_rssi>
+			<min_noise_rssi>1024</min_noise_rssi>
+			<max_signal_dbm>-45</max_signal_dbm>
+			<max_noise_dbm>0</max_noise_dbm>
+			<max_signal_rssi>-45</max_signal_rssi>
+			<max_noise_rssi>0</max_noise_rssi>
+		</snr-info>
+		<bsstimestamp>8157336883587</bsstimestamp>
+		<cdp-device></cdp-device>
+		<cdp-portid></cdp-portid>
+	</wireless-network>
+	<wireless-network number="4" type="infrastructure" first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:56 2026">
+		<SSID first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:56 2026">
+			<type>Beacon</type>
+			<max-rate>130.000000</max-rate>
+			<packets>6</packets>
+			<beaconrate>10</beaconrate>
+			<encryption>WPA+PSK</encryption>
+			<encryption>WPA+AES-CCM</encryption>
+			<essid cloaked="false">Province.Office.WIFI</essid>
+		</SSID>
+		<BSSID>C8:03:F5:7D:35:48</BSSID>
+		<manuf>Ruckus Wireless</manuf>
+		<channel>11</channel>
+		<freqmhz>2462 6</freqmhz>
+		<maxseenrate>130000</maxseenrate>
+		<carrier>IEEE 802.11b+</carrier>
+		<encoding>CCK</encoding>
+		<packets>
+			<LLC>0</LLC>
+			<data>0</data>
+			<crypt>0</crypt>
+			<total>6</total>
+			<fragments>0</fragments>
+			<retries>0</retries>
+		</packets>
+		<datasize>0</datasize>
+		<snr-info>
+			<last_signal_dbm>-45</last_signal_dbm>
+			<last_noise_dbm>0</last_noise_dbm>
+			<last_signal_rssi>-45</last_signal_rssi>
+			<last_noise_rssi>0</last_noise_rssi>
+			<min_signal_dbm>-45</min_signal_dbm>
+			<min_noise_dbm>0</min_noise_dbm>
+			<min_signal_rssi>1024</min_signal_rssi>
+			<min_noise_rssi>1024</min_noise_rssi>
+			<max_signal_dbm>-45</max_signal_dbm>
+			<max_noise_dbm>0</max_noise_dbm>
+			<max_signal_rssi>-45</max_signal_rssi>
+			<max_noise_rssi>0</max_noise_rssi>
+		</snr-info>
+		<bsstimestamp>8157336883712</bsstimestamp>
+		<cdp-device></cdp-device>
+		<cdp-portid></cdp-portid>
+	</wireless-network>
+	<wireless-network number="5" type="infrastructure" first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:56 2026">
+		<SSID first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:56 2026">
+			<type>Beacon</type>
+			<max-rate>130.000000</max-rate>
+			<packets>6</packets>
+			<beaconrate>10</beaconrate>
+			<encryption>None</encryption>
+			<essid cloaked="false">Province.Guest.WIFI</essid>
+		</SSID>
+		<BSSID>C8:03:F5:BD:35:48</BSSID>
+		<manuf>Ruckus Wireless</manuf>
+		<channel>11</channel>
+		<freqmhz>2462 10</freqmhz>
+		<maxseenrate>130000</maxseenrate>
+		<carrier>IEEE 802.11b+</carrier>
+		<encoding>CCK</encoding>
+		<packets>
+			<LLC>4</LLC>
+			<data>4</data>
+			<crypt>0</crypt>
 			<total>10</total>
 			<fragments>0</fragments>
 			<retries>0</retries>
 		</packets>
 		<datasize>0</datasize>
+		<wireless-client number="1" type="established" first-time="Thu Apr  2 14:25:55 2026" last-time="Thu Apr  2 14:25:56 2026">
+			<client-mac>C0:18:03:05:C8:DA</client-mac>
+			<client-manuf>HP Inc.</client-manuf>
+			<channel>0</channel>
+			<maxseenrate>12.000000</maxseenrate>
+			<carrier>IEEE 802.11b+</carrier>
+			<encoding>CCK</encoding>
+			<packets>
+				<LLC>0</LLC>
+				<data>0</data>
+				<crypt>0</crypt>
+				<total>4</total>
+				<fragments>0</fragments>
+				<retries>0</retries>
+			</packets>
+			<snr-info>
+				<last_signal_dbm>0</last_signal_dbm>
+				<last_noise_dbm>0</last_noise_dbm>
+				<last_signal_rssi>0</last_signal_rssi>
+				<last_noise_rssi>0</last_noise_rssi>
+				<min_signal_dbm>0</min_signal_dbm>
+				<min_noise_dbm>0</min_noise_dbm>
+				<min_signal_rssi>1024</min_signal_rssi>
+				<min_noise_rssi>1024</min_noise_rssi>
+				<max_signal_dbm>0</max_signal_dbm>
+				<max_noise_dbm>0</max_noise_dbm>
+				<max_signal_rssi>0</max_signal_rssi>
+				<max_noise_rssi>0</max_noise_rssi>
+			</snr-info>
+		</wireless-client>
 		<snr-info>
-			<last_signal_dbm>-44</last_signal_dbm>
+			<last_signal_dbm>-47</last_signal_dbm>
 			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-44</last_signal_rssi>
+			<last_signal_rssi>-47</last_signal_rssi>
 			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-44</min_signal_dbm>
+			<min_signal_dbm>-47</min_signal_dbm>
 			<min_noise_dbm>0</min_noise_dbm>
 			<min_signal_rssi>1024</min_signal_rssi>
 			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-44</max_signal_dbm>
+			<max_signal_dbm>-47</max_signal_dbm>
 			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-44</max_signal_rssi>
+			<max_signal_rssi>-47</max_signal_rssi>
 			<max_noise_rssi>0</max_noise_rssi>
 		</snr-info>
-		<bsstimestamp>465873817970</bsstimestamp>
+		<bsstimestamp>8157336883833</bsstimestamp>
 		<cdp-device></cdp-device>
 		<cdp-portid></cdp-portid>
 	</wireless-network>
-	<wireless-network number="3" type="infrastructure" first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:58 2026">
-		<SSID first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:58 2026">
+	<wireless-network number="6" type="infrastructure" first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:52 2026">
+		<SSID first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:52 2026">
 			<type>Beacon</type>
-			<max-rate>130.000000</max-rate>
-			<packets>3</packets>
-			<beaconrate>10</beaconrate>
-			<encryption>None</encryption>
-			<essid cloaked="false">Province.Guest.WIFI</essid>
-		</SSID>
-		<BSSID>C8:03:F5:BE:AA:88</BSSID>
-		<manuf>Ruckus Wireless</manuf>
-		<channel>11</channel>
-		<freqmhz>2462 3</freqmhz>
-		<maxseenrate>130000</maxseenrate>
-		<carrier>IEEE 802.11b+</carrier>
-		<encoding>CCK</encoding>
-		<packets>
-			<LLC>0</LLC>
-			<data>0</data>
-			<crypt>0</crypt>
-			<total>3</total>
-			<fragments>0</fragments>
-			<retries>0</retries>
-		</packets>
-		<datasize>0</datasize>
-		<snr-info>
-			<last_signal_dbm>-58</last_signal_dbm>
-			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-58</last_signal_rssi>
-			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-58</min_signal_dbm>
-			<min_noise_dbm>0</min_noise_dbm>
-			<min_signal_rssi>1024</min_signal_rssi>
-			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-58</max_signal_dbm>
-			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-58</max_signal_rssi>
-			<max_noise_rssi>0</max_noise_rssi>
-		</snr-info>
-		<bsstimestamp>8154017895326</bsstimestamp>
-		<cdp-device></cdp-device>
-		<cdp-portid></cdp-portid>
-	</wireless-network>
-	<wireless-network number="4" type="infrastructure" first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:58 2026">
-		<SSID first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:58 2026">
-			<type>Beacon</type>
-			<max-rate>130.000000</max-rate>
+			<max-rate>65.000000</max-rate>
 			<packets>2</packets>
 			<beaconrate>10</beaconrate>
 			<encryption>WPA+PSK</encryption>
 			<encryption>WPA+AES-CCM</encryption>
-			<essid cloaked="false">Province.SynergyWifi.com_EXT</essid>
+			<essid cloaked="false">DIRECT-da-HP M140 LaserJet</essid>
 		</SSID>
-		<BSSID>20:23:51:91:F3:34</BSSID>
+		<BSSID>C2:18:03:05:48:DA</BSSID>
 		<manuf>Unknown</manuf>
 		<channel>11</channel>
-		<freqmhz>2462 2</freqmhz>
-		<maxseenrate>130000</maxseenrate>
+		<freqmhz>2462 4</freqmhz>
+		<maxseenrate>65000</maxseenrate>
 		<carrier>IEEE 802.11b+</carrier>
 		<encoding>CCK</encoding>
 		<packets>
 			<LLC>0</LLC>
 			<data>0</data>
 			<crypt>0</crypt>
-			<total>2</total>
+			<total>4</total>
 			<fragments>0</fragments>
 			<retries>0</retries>
 		</packets>
@@ -174,68 +329,24 @@
 			<max_signal_rssi>-57</max_signal_rssi>
 			<max_noise_rssi>0</max_noise_rssi>
 		</snr-info>
-		<bsstimestamp>8154486682023</bsstimestamp>
+		<bsstimestamp>8157313843209</bsstimestamp>
 		<cdp-device></cdp-device>
 		<cdp-portid></cdp-portid>
 	</wireless-network>
-	<wireless-network number="5" type="infrastructure" first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
-		<SSID first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
+	<wireless-network number="7" type="infrastructure" first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:55 2026">
+		<SSID first-time="Thu Apr  2 14:25:52 2026" last-time="Thu Apr  2 14:25:55 2026">
 			<type>Beacon</type>
-			<max-rate>65.000000</max-rate>
-			<packets>2</packets>
+			<max-rate>130.000000</max-rate>
+			<packets>4</packets>
 			<beaconrate>10</beaconrate>
 			<encryption>WPA+PSK</encryption>
 			<encryption>WPA+AES-CCM</encryption>
-			<essid cloaked="false">DIRECT-da-HP M140 LaserJet</essid>
+			<essid cloaked="false">Province.SynergyWifi.com_EXT</essid>
 		</SSID>
-		<BSSID>C2:18:03:05:48:DA</BSSID>
+		<BSSID>20:23:51:91:F3:34</BSSID>
 		<manuf>Unknown</manuf>
 		<channel>11</channel>
-		<freqmhz>2462 2</freqmhz>
-		<maxseenrate>65000</maxseenrate>
-		<carrier>IEEE 802.11b+</carrier>
-		<encoding>CCK</encoding>
-		<packets>
-			<LLC>0</LLC>
-			<data>0</data>
-			<crypt>0</crypt>
-			<total>2</total>
-			<fragments>0</fragments>
-			<retries>0</retries>
-		</packets>
-		<datasize>0</datasize>
-		<snr-info>
-			<last_signal_dbm>-59</last_signal_dbm>
-			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-59</last_signal_rssi>
-			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-59</min_signal_dbm>
-			<min_noise_dbm>0</min_noise_dbm>
-			<min_signal_rssi>1024</min_signal_rssi>
-			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-59</max_signal_dbm>
-			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-59</max_signal_rssi>
-			<max_noise_rssi>0</max_noise_rssi>
-		</snr-info>
-		<bsstimestamp>8154020561040</bsstimestamp>
-		<cdp-device></cdp-device>
-		<cdp-portid></cdp-portid>
-	</wireless-network>
-	<wireless-network number="6" type="infrastructure" first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
-		<SSID first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
-			<type>Beacon</type>
-			<max-rate>130.000000</max-rate>
-			<packets>4</packets>
-			<beaconrate>10</beaconrate>
-			<encryption>WPA+PSK</encryption>
-			<encryption>WPA+AES-CCM</encryption>
-			<essid cloaked="false">Province.SynergyWifi.com</essid>
-		</SSID>
-		<BSSID>C8:03:F5:3D:35:48</BSSID>
-		<manuf>Ruckus Wireless</manuf>
-		<channel>6</channel>
-		<freqmhz>2437 4</freqmhz>
+		<freqmhz>2462 7</freqmhz>
 		<maxseenrate>130000</maxseenrate>
 		<carrier>IEEE 802.11b+</carrier>
 		<encoding>CCK</encoding>
@@ -243,184 +354,27 @@
 			<LLC>0</LLC>
 			<data>0</data>
 			<crypt>0</crypt>
-			<total>4</total>
+			<total>7</total>
 			<fragments>0</fragments>
 			<retries>0</retries>
 		</packets>
 		<datasize>0</datasize>
 		<snr-info>
-			<last_signal_dbm>-45</last_signal_dbm>
+			<last_signal_dbm>-54</last_signal_dbm>
 			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-45</last_signal_rssi>
+			<last_signal_rssi>-54</last_signal_rssi>
 			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-45</min_signal_dbm>
+			<min_signal_dbm>-54</min_signal_dbm>
 			<min_noise_dbm>0</min_noise_dbm>
 			<min_signal_rssi>1024</min_signal_rssi>
 			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-45</max_signal_dbm>
+			<max_signal_dbm>-54</max_signal_dbm>
 			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-45</max_signal_rssi>
+			<max_signal_rssi>-54</max_signal_rssi>
 			<max_noise_rssi>0</max_noise_rssi>
 		</snr-info>
-		<bsstimestamp>8154040115587</bsstimestamp>
+		<bsstimestamp>8157783757218</bsstimestamp>
 		<cdp-device></cdp-device>
 		<cdp-portid></cdp-portid>
 	</wireless-network>
-	<wireless-network number="7" type="infrastructure" first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
-		<SSID first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
-			<type>Beacon</type>
-			<max-rate>130.000000</max-rate>
-			<packets>4</packets>
-			<beaconrate>10</beaconrate>
-			<encryption>WPA+PSK</encryption>
-			<encryption>WPA+AES-CCM</encryption>
-			<essid cloaked="false">Province.Office.WIFI</essid>
-		</SSID>
-		<BSSID>C8:03:F5:7D:35:48</BSSID>
-		<manuf>Ruckus Wireless</manuf>
-		<channel>6</channel>
-		<freqmhz>2437 4</freqmhz>
-		<maxseenrate>130000</maxseenrate>
-		<carrier>IEEE 802.11b+</carrier>
-		<encoding>CCK</encoding>
-		<packets>
-			<LLC>0</LLC>
-			<data>0</data>
-			<crypt>0</crypt>
-			<total>4</total>
-			<fragments>0</fragments>
-			<retries>0</retries>
-		</packets>
-		<datasize>0</datasize>
-		<snr-info>
-			<last_signal_dbm>-45</last_signal_dbm>
-			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-45</last_signal_rssi>
-			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-45</min_signal_dbm>
-			<min_noise_dbm>0</min_noise_dbm>
-			<min_signal_rssi>1024</min_signal_rssi>
-			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-45</max_signal_dbm>
-			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-45</max_signal_rssi>
-			<max_noise_rssi>0</max_noise_rssi>
-		</snr-info>
-		<bsstimestamp>8154040115712</bsstimestamp>
-		<cdp-device></cdp-device>
-		<cdp-portid></cdp-portid>
-	</wireless-network>
-	<wireless-network number="8" type="infrastructure" first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
-		<SSID first-time="Thu Apr  2 13:30:55 2026" last-time="Thu Apr  2 13:30:59 2026">
-			<type>Beacon</type>
-			<max-rate>130.000000</max-rate>
-			<packets>4</packets>
-			<beaconrate>10</beaconrate>
-			<encryption>None</encryption>
-			<essid cloaked="false">Province.Guest.WIFI</essid>
-		</SSID>
-		<BSSID>C8:03:F5:BD:35:48</BSSID>
-		<manuf>Ruckus Wireless</manuf>
-		<channel>6</channel>
-		<freqmhz>2437 4</freqmhz>
-		<maxseenrate>130000</maxseenrate>
-		<carrier>IEEE 802.11b+</carrier>
-		<encoding>CCK</encoding>
-		<packets>
-			<LLC>0</LLC>
-			<data>0</data>
-			<crypt>0</crypt>
-			<total>4</total>
-			<fragments>0</fragments>
-			<retries>0</retries>
-		</packets>
-		<datasize>0</datasize>
-		<snr-info>
-			<last_signal_dbm>-45</last_signal_dbm>
-			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-45</last_signal_rssi>
-			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-45</min_signal_dbm>
-			<min_noise_dbm>0</min_noise_dbm>
-			<min_signal_rssi>1024</min_signal_rssi>
-			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-45</max_signal_dbm>
-			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-45</max_signal_rssi>
-			<max_noise_rssi>0</max_noise_rssi>
-		</snr-info>
-		<bsstimestamp>8154040115833</bsstimestamp>
-		<cdp-device></cdp-device>
-		<cdp-portid></cdp-portid>
-	</wireless-network>
-	<wireless-network number="9" type="probe" first-time="Thu Apr  2 13:30:52 2026" last-time="Thu Apr  2 13:30:53 2026">
-		<BSSID>50:84:92:06:B2:FC</BSSID>
-		<manuf>Intel Corporate</manuf>
-		<channel>13</channel>
-		<freqmhz>2472 5</freqmhz>
-		<maxseenrate>1.000000</maxseenrate>
-		<carrier>IEEE 802.11b+</carrier>
-		<encoding>CCK</encoding>
-		<packets>
-			<LLC>0</LLC>
-			<data>0</data>
-			<crypt>0</crypt>
-			<total>5</total>
-			<fragments>0</fragments>
-			<retries>0</retries>
-		</packets>
-		<datasize>0</datasize>
-		<snr-info>
-			<last_signal_dbm>-25</last_signal_dbm>
-			<last_noise_dbm>0</last_noise_dbm>
-			<last_signal_rssi>-25</last_signal_rssi>
-			<last_noise_rssi>0</last_noise_rssi>
-			<min_signal_dbm>-25</min_signal_dbm>
-			<min_noise_dbm>0</min_noise_dbm>
-			<min_signal_rssi>1024</min_signal_rssi>
-			<min_noise_rssi>1024</min_noise_rssi>
-			<max_signal_dbm>-25</max_signal_dbm>
-			<max_noise_dbm>0</max_noise_dbm>
-			<max_signal_rssi>-25</max_signal_rssi>
-			<max_noise_rssi>0</max_noise_rssi>
-		</snr-info>
-		<bsstimestamp>0</bsstimestamp>
-		<cdp-device></cdp-device>
-		<cdp-portid></cdp-portid>
-		<wireless-client number="1" type="tods" first-time="Thu Apr  2 13:30:52 2026" last-time="Thu Apr  2 13:30:53 2026">
-			<client-mac>50:84:92:06:B2:FC</client-mac>
-			<client-manuf>Intel Corporate</client-manuf>
-			<SSID first-time="Thu Apr  2 13:30:52 2026" last-time="Thu Apr  2 13:30:53 2026">
-				<type>Probe Request</type>
-				<max-rate>54.000000</max-rate>
-				<packets>1</packets>
-				<encryption>None</encryption>
-			</SSID>
-			<channel>13</channel>
-			<maxseenrate>1.000000</maxseenrate>
-			<carrier>IEEE 802.11b+</carrier>
-			<encoding>CCK</encoding>
-			<packets>
-				<LLC>0</LLC>
-				<data>0</data>
-				<crypt>0</crypt>
-				<total>5</total>
-				<fragments>0</fragments>
-				<retries>0</retries>
-			</packets>
-			<snr-info>
-				<last_signal_dbm>-25</last_signal_dbm>
-				<last_noise_dbm>0</last_noise_dbm>
-				<last_signal_rssi>-25</last_signal_rssi>
-				<last_noise_rssi>0</last_noise_rssi>
-				<min_signal_dbm>-25</min_signal_dbm>
-				<min_noise_dbm>0</min_noise_dbm>
-				<min_signal_rssi>1024</min_signal_rssi>
-				<min_noise_rssi>1024</min_noise_rssi>
-				<max_signal_dbm>-25</max_signal_dbm>
-				<max_noise_dbm>0</max_noise_dbm>
-				<max_signal_rssi>-25</max_signal_rssi>
-				<max_noise_rssi>0</max_noise_rssi>
-			</snr-info>
-		</wireless-client>
-	</wireless-network></detection-run>
+</detection-run>
