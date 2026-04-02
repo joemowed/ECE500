@@ -1,0 +1,11 @@
+names:
+  0: red_block
+  1: yellow_block
+  2: purple_block
+  3: green_block
+  4: enemy
+  5: white_base
+  6: black_base
+path: /home/jmaloney/Documents/ECE500/python_projects/opencv565/vid
+train: images/train
+val: images/val
