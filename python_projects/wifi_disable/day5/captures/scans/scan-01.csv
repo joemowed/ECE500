@@ -1,0 +1,7 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+D0:D3:E0:ED:C6:80, 2026-04-03 13:56:11, 2026-04-03 13:56:11,  1, 130, WPA2, CCMP, MGT, -63,        1,        0,   0.  0.  0.  0,   7, eduroam, 
+D0:D3:E0:ED:C6:83, 2026-04-03 13:56:11, 2026-04-03 13:56:11,  1, 130, OPN, ,   , -62,        1,        0,   0.  0.  0.  0,   9, ulvisitor, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+

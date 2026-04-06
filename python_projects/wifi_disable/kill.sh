@@ -1,5 +1,5 @@
-if nmcli --wait 5 device wifi connect "$ssid" password "$password" > /dev/null 2>&1; then
-    
+INTERFACE="wlp0s20f3"
+if nmcli --wait 5 device wifi connect "$ssid" password "$password" ifname "$INTERFACE" > /dev/null 2>&1; then
     # Manually assign an IP immediately (No waiting for DHCP!)
     # Adjust 192.168.1.50 to an IP likely to be free on your target networks
     sudo ip addr add 192.168.125.50/24 dev wlan0 2>/dev/null

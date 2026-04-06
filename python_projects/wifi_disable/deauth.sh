@@ -16,7 +16,7 @@ shopt -s globstar
 # INTERFACE_PRE="wlx2a9401b9b39f"
 INTERFACE_PRE="wlx289401b9b39f"
 INTERFACE="wlan0mon"
-TARGET_STRING="fbi"
+TARGET_STRING="wombat"
 OUTPUT_DIR="./captures"
 SCAN_TIME="10s"
 MON_TIME="15s"
