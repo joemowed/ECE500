@@ -1,0 +1,15 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:A2:CD:A4, 2026-04-08 13:06:04, 2026-04-08 13:06:12,  6,  54, WPA, TKIP, PSK, -54,        7,        0,   0.  0.  0.  0,  11, 1032-wombat, 
+B8:27:EB:FF:C8:F5, 2026-04-08 13:06:04, 2026-04-08 13:06:12,  6,  54, WPA, TKIP, PSK, -52,       12,        0,   0.  0.  0.  0,  11, 0960-wombat, 
+B8:27:EB:7C:81:10, 2026-04-08 13:06:04, 2026-04-08 13:06:11,  6,  54, WPA, TKIP, PSK, -57,        7,        0,   0.  0.  0.  0,  11, 1019-wombat, 
+B8:27:EB:6F:ED:ED, 2026-04-08 13:06:04, 2026-04-08 13:06:12,  6,  54, WPA, TKIP, PSK, -45,       15,        0,   0.  0.  0.  0,  11, 0999-wombat, 
+D0:D3:E0:ED:C6:80, 2026-04-08 13:06:04, 2026-04-08 13:06:08,  1, 130, WPA2, CCMP, MGT, -56,        2,        0,   0.  0.  0.  0,   7, eduroam, 
+B8:27:EB:AE:E1:5D, 2026-04-08 13:06:07, 2026-04-08 13:06:11,  6,  54, WPA, TKIP, PSK, -57,        5,        0,   0.  0.  0.  0,  11, 1029-wombat, 
+D0:D3:E0:ED:C6:83, 2026-04-08 13:06:08, 2026-04-08 13:06:08,  1, 130, OPN, ,   , -56,        2,        0,   0.  0.  0.  0,   9, ulvisitor, 
+D0:D3:E0:ED:C6:81, 2026-04-08 13:06:08, 2026-04-08 13:06:08,  1, 130, WPA2, CCMP, MGT, -56,        1,        0,   0.  0.  0.  0,   8, ulsecure, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+14:13:33:29:51:53, 2026-04-08 13:06:04, 2026-04-08 13:06:12, -43,        5, B8:27:EB:A2:CD:A4,
+C4:CB:76:AF:5C:A8, 2026-04-08 13:06:08, 2026-04-08 13:06:08, -58,        2, B8:27:EB:7C:81:10,
+

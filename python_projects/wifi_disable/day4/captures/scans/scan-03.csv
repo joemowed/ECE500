@@ -1,0 +1,13 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:AE:E1:5D, 2026-04-08 13:01:17, 2026-04-08 13:01:25,  6,  54, WPA, TKIP, PSK, -57,        8,        0,   0.  0.  0.  0,  11, 1029-wombat, 
+B8:27:EB:7C:81:10, 2026-04-08 13:01:17, 2026-04-08 13:01:24,  6,  54, WPA, TKIP, PSK, -60,        7,        0,   0.  0.  0.  0,  11, 1019-wombat, 
+B8:27:EB:6F:ED:ED, 2026-04-08 13:01:17, 2026-04-08 13:01:25,  6,  54, WPA, TKIP, PSK, -39,       13,        0,   0.  0.  0.  0,  11, 0999-wombat, 
+B8:27:EB:FF:C8:F5, 2026-04-08 13:01:17, 2026-04-08 13:01:25,  6,  54, WPA, TKIP, PSK, -52,       11,        0,   0.  0.  0.  0,  11, 0960-wombat, 
+B8:27:EB:A2:CD:A4, 2026-04-08 13:01:17, 2026-04-08 13:01:25,  6,  54, WPA, TKIP, PSK, -52,        9,        0,   0.  0.  0.  0,  11, 1032-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+C4:CB:76:AF:5C:A8, 2026-04-08 13:01:17, 2026-04-08 13:01:24, -58,        4, B8:27:EB:7C:81:10,
+88:B1:11:C6:19:93, 2026-04-08 13:01:17, 2026-04-08 13:01:17, -58,        2, (not associated) ,ulsecure
+14:13:33:29:51:53, 2026-04-08 13:01:25, 2026-04-08 13:01:25, -49,        1, B8:27:EB:A2:CD:A4,
+

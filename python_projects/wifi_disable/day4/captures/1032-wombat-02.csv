@@ -1,0 +1,7 @@
+
+BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
+B8:27:EB:A2:CD:A4, 2026-04-08 12:53:52, 2026-04-08 12:54:37,  6,  54, WPA, TKIP, PSK, -46,      437,      203,   0.  0.  0.  0,  11, 1032-wombat, 
+
+Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
+14:13:33:29:51:53, 2026-04-08 12:53:55, 2026-04-08 12:54:37, -48,      380, B8:27:EB:A2:CD:A4,1032-wombat
+
