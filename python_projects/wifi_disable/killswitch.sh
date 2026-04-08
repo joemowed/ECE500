@@ -1,4 +1,8 @@
 #!/bin/bash
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
+fi
 
 INTERFACE1="wlp0s20f3"
 INTERFACE2="wlx289401b9b39f"
