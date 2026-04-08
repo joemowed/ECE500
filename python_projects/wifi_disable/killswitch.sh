@@ -3,6 +3,8 @@
 INTERFACE1="wlp0s20f3"
 INTERFACE2="wlx289401b9b39f"
 
+nmcli device disconnect $INTERFACE1
+nmcli device disconnect $INTERFACE2
 nmcli device wifi connect "0999-wombat" password "d3b5e800" ifname "$INTERFACE2" 
 sudo ip addr add 192.168.1.100/24 dev "$INTERFACE2"
 echo "Waiting for start...."
