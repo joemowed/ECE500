@@ -1,7 +1,0 @@
-
-BSSID, First time seen, Last time seen, channel, Speed, Privacy, Cipher, Authentication, Power, # beacons, # IV, LAN IP, ID-length, ESSID, Key
-1A:48:CA:1C:2D:34, 2026-04-02 14:51:16, 2026-04-02 14:51:43,  1, 130, WPA2, CCMP, PSK, -47,      158,        0,   0.  0.  0.  0,  15, fbi surveliance, 
-
-Station MAC, First time seen, Last time seen, Power, # packets, BSSID, Probed ESSIDs
-50:84:92:06:B2:FB, 2026-04-02 14:51:18, 2026-04-02 14:51:38, -58,      338, 1A:48:CA:1C:2D:34,
-
