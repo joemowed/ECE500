@@ -32,8 +32,8 @@ cleanup() {
 trap cleanup SIGINT SIGTERM
 nmcli device set "$INTERFACE1" autoconnect no
 nmcli device set "$INTERFACE2" autoconnect no
-./kill_subproc.sh test.csv "$INTERFACE1" &
-# ./kill_subproc.sh passwords_pt1.csv "$INTERFACE1" &
-# ./kill_subproc.sh passwords_pt2.csv "$INTERFACE2" &
+#./kill_subproc.sh test.csv "$INTERFACE1" &
+./kill_subproc.sh passwords_pt1.csv "$INTERFACE1" &
+./kill_subproc.sh passwords_pt2.csv "$INTERFACE2" &
 
 wait
