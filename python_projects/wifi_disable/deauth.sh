@@ -78,6 +78,7 @@ while true; do
         sleep 10s
         sudo timeout -k 8s 10s aireplay-ng  -0 4 -D -a "$BSSID"  "$INTERFACE"    > /dev/null 2>&1
         wait $MONITOR_PID
+sudo ip addr add 192.168.125.100/24 dev "$INTERFACE1"
 
         # 3. THE VALIDATION CHECK
         # Use hcxpcapngtool to see if a crackable hash was actually caught
@@ -96,6 +97,6 @@ while true; do
     echo -en $GREEN 
     echo "Finished one full sweep. Restarting scan..."
     echo -en $NC
-    sleep 2
+    sleep 300
 done
 
